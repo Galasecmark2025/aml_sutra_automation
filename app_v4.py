@@ -47,7 +47,7 @@ def perform_actions(window, actions, logger):
         time.sleep(3)
             
         company_list = fetch_company_list(window, logger)
-        logger.info(company_list)
+        logger.info(f"Found companies: {company_list}")
         
         company_combo = window.child_window(
             auto_id="popCBECode",
@@ -59,44 +59,45 @@ def perform_actions(window, actions, logger):
         )
         time.sleep(1)
         
-        for company_row in company_list:
-            title = company_row.get("title", "")
-            
-            dropdown_btn.click_input()
-            time.sleep(1)
-            
-            send_keys(title)
-            time.sleep(1)
+        # for company_row in company_list:
+            # title = company_row.get("title", "")
+        title = company
+        
+        dropdown_btn.click_input()
+        time.sleep(1)
+        
+        send_keys(title)
+        time.sleep(1)
 
-            # PRESS ENTER
-            send_keys("{ENTER}")
-            time.sleep(2)
-            
-            selected = company_combo.window_text()
-            logger.info(f"Selected UI Value: {selected}")
-            process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
-            table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
-            logger.info(f"Table Process IDs: {table_process_ids_list}")
-            process_all = False
-            if proc_ids is None:
-                process_all = True
-            if proc_ids:
-                config_process_ids_list = [
-                    str(pid)
-                    for pid in proc_ids
-                    if str(pid)
-                    in table_process_ids_list
-                ]
-            if process_all:
-                mark_rows_by_process_ids(window, process_all=True, logger=logger)
-            elif config_process_ids_list:    
-                logger.info(f"IDs to process: {config_process_ids_list}")
-                mark_rows_by_process_ids(window, process_ids=config_process_ids_list, logger=logger)
-            post_process_table_data = trade_summary_processing(window, logger)
-            logger.info(f"Post process table data: {post_process_table_data}")
-            is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
-            if not is_processed:
-                logger.warning(f"Process failure")
+        # PRESS ENTER
+        send_keys("{ENTER}")
+        time.sleep(2)
+        
+        selected = company_combo.window_text()
+        logger.info(f"Selected UI Value: {selected}")
+        process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
+        table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
+        logger.info(f"Table Process IDs: {table_process_ids_list}")
+        process_all = False
+        if proc_ids is None:
+            process_all = True
+        if proc_ids:
+            config_process_ids_list = [
+                str(pid)
+                for pid in proc_ids
+                if str(pid)
+                in table_process_ids_list
+            ]
+        if process_all:
+            mark_rows_by_process_ids(window, process_all=True, logger=logger)
+        elif config_process_ids_list:    
+            logger.info(f"IDs to process: {config_process_ids_list}")
+            mark_rows_by_process_ids(window, process_ids=config_process_ids_list, logger=logger)
+        post_process_table_data = trade_summary_processing(window, logger)
+        logger.info(f"Post process table data: {post_process_table_data}")
+        is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
+        if not is_processed:
+            logger.warning(f"Process failure")
         try:
             close_opened_window(window)
         except:

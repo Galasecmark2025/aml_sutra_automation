@@ -9,8 +9,21 @@
       "main_menu":"Process",
       "sub_menu":"Alert Generation",
       "company":"Captial Market [11]",
-      "process_type":"7 - TRTradeSummary",
-      "proc_ids": [138, 141],
+      "proc_ids": [137, 138],
+      "date" : "18-May-2026"
+    },
+    {
+      "main_menu":"Process",
+      "sub_menu":"Alert Generation",
+      "company":"Futures and Options - [ 12 ]",
+      "proc_ids": [140, 185],
+      "date" : "18-May-2026"
+    },
+    {
+      "main_menu":"Process",
+      "sub_menu":"Alert Generation",
+      "company":"Commodity Derivative - [ 14 ]",
+      "proc_ids": [179, 141],
       "date" : "18-May-2026"
     }
   ]
