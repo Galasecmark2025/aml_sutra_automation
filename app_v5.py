@@ -70,50 +70,7 @@ def perform_actions(window, actions, logger):
         company_list = fetch_company_list(window, logger)
         logger.info(f"Found companies: {company_list}")
         fetch_dropdown_value(window, "popCBECode", company, logger)
-        # company_combo = window.child_window(
-        #     auto_id="popCBECode",
-        #     control_type="ComboBox"
-        # )
-        # dropdown_btn = company_combo.child_window(
-        #     auto_id="[Editor] dropdown button",
-        #     control_type="Button"
-        # )
-        # time.sleep(1)
-
-        # title = company
-        
-        # dropdown_btn.click_input()
-        # time.sleep(1)
-        
-        # send_keys(title)
-        # time.sleep(1)
-
-        # # PRESS ENTER
-        # send_keys("{ENTER}")
-        # time.sleep(2)
-        
-        # selected = company_combo.window_text()
-        # logger.info(f"Selected UI Value: {selected}")
         fetch_dropdown_value(window, "popProcType", proc_type, logger)
-        # proc_type_combo = window.child_window(
-        #     auto_id="popProcType",
-        #     control_type="ComboBox"
-        # )
-        # proc_type_dropdown_btn = proc_type_combo.child_window(
-        #     auto_id="[Editor] dropdown button",
-        #     control_type="Button"
-        # )
-        # time.sleep(1)
-        
-        # proc_type_dropdown_btn.click_input()
-        # time.sleep(1)
-        
-        # send_keys(proc_type)
-        # time.sleep(1)
-
-        # # PRESS ENTER
-        # send_keys("{ENTER}")
-        # time.sleep(2)
         process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
         table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
         logger.info(f"Table Process IDs: {table_process_ids_list}")
@@ -164,7 +121,8 @@ def run():
     if "Login" in window_title:
         login(window, username, password, logger)
 
-    time.sleep(5)
+    new_window = app.window(title="AMLSutra (1.0.0) : PMLA [TRAMLSutra]")
+    new_window.wait("exists enabled visible ready", timeout=30)
     # return
 
     new_window = app.top_window()
