@@ -25,7 +25,7 @@ def perform_actions(window, actions, logger):
         main_menu = action.get("main_menu")
         sub_menu = action.get("sub_menu")
         company = action.get("company")
-        process_type = action.get("process_type")
+        proc_type = action.get("proc_type")
         proc_ids = action.get("proc_ids", None)
         date = action.get("date")
         
@@ -58,9 +58,7 @@ def perform_actions(window, actions, logger):
             control_type="Button"
         )
         time.sleep(1)
-        
-        # for company_row in company_list:
-            # title = company_row.get("title", "")
+
         title = company
         
         dropdown_btn.click_input()
@@ -75,6 +73,25 @@ def perform_actions(window, actions, logger):
         
         selected = company_combo.window_text()
         logger.info(f"Selected UI Value: {selected}")
+        proc_type_combo = window.child_window(
+            auto_id="popProcType",
+            control_type="ComboBox"
+        )
+        proc_type_dropdown_btn = proc_type_combo.child_window(
+            auto_id="[Editor] dropdown button",
+            control_type="Button"
+        )
+        time.sleep(1)
+        
+        proc_type_dropdown_btn.click_input()
+        time.sleep(1)
+        
+        send_keys(proc_type)
+        time.sleep(1)
+
+        # PRESS ENTER
+        send_keys("{ENTER}")
+        time.sleep(2)
         process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
         table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
         logger.info(f"Table Process IDs: {table_process_ids_list}")
