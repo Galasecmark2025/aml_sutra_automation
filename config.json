@@ -11,7 +11,7 @@
       "company":"Captial Market [11]",
       "proc_type": "7 - TRTradeSummary",
       "proc_ids": [137, 138],
-      "date" : "18-May-2026"
+      "date" : "11/May/2026"
     },
     {
       "main_menu":"Process",
@@ -19,7 +19,7 @@
       "company":"Futures and Options - [ 12 ]",
       "proc_type": "7 - TRTradeSummary",
       "proc_ids": [140, 185],
-      "date" : "18-May-2026"
+      "date" : "11/May/2026"
     },
     {
       "main_menu":"Process",
@@ -27,7 +27,7 @@
       "company":"Commodity Derivative - [ 14 ]",
       "proc_type": "7 - TRTradeSummary",
       "proc_ids": [179, 141],
-      "date" : "18-May-2026"
+      "date" : "11/May/2026"
     },
     {
       "main_menu":"Process",
@@ -43,7 +43,7 @@
       "company":"Futures and Options - [ 12 ]",
       "proc_type": "9 - TRSettlementProcess",
       "proc_ids": [144],
-      "date" : "18-May-2026"
+      "date" : "11/May/2026"
     },
     {
       "main_menu":"Process",
@@ -51,7 +51,7 @@
       "company":"Commodity Derivative - [ 14 ]",
       "proc_type": "9 - TRSettlementProcess",
       "proc_ids": [144],
-      "date" : "18-May-2026"
+      "date" : "11/May/2026"
     }
   ]
 }
