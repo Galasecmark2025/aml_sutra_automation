@@ -1,0 +1,5 @@
+Control Identifiers:
+
+Dialog - 'AMLSutra (1.0.0) : PMLA [TRAMLSutra]'    (L-10, T-10, R1930, B1030)
+['AMLSutra (1.0.0) : PMLA [TRAMLSutra]Dialog', 'AMLSutra (1.0.0) : PMLA [TRAMLSutra]', 'Dialog', 'Dialog0', 'Dialog1']
+child_window(title="AMLSutra (1.0.0) : PMLA [TRAMLSutra]", auto_id="MDIForm", control_type="Window")

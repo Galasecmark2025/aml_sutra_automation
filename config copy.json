@@ -1,0 +1,12 @@
+{
+    "exe_path": "D:\\DB&Exc\\TRAMLSUTRA_15052026\\AMLSutra.exe", 
+    "proc_ids": [138, 137], 
+    "process_all": false, 
+    "credentials": [
+        {
+            "username": "cadmin", 
+            "password": "", 
+            "year": ""
+        }
+    ]
+}

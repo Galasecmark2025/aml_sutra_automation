@@ -1,0 +1,132 @@
+Control Identifiers:
+
+Dialog - 'AMLSutra : Login'    (L626, T331, R1294, B689)
+['AMLSutra : LoginDialog', 'Dialog', 'AMLSutra : Login', 'Dialog0', 'Dialog1']
+child_window(title="AMLSutra : Login", auto_id="LoginForm", control_type="Window")
+   | 
+   | Dialog - ''    (L621, T326, R1299, B331)
+   | ['Dialog2']
+   | 
+   | Dialog - ''    (L621, T689, R1299, B694)
+   | ['Dialog3', 'YearDialog']
+   | 
+   | Dialog - ''    (L621, T331, R626, B689)
+   | ['Dialog4']
+   | 
+   | Dialog - ''    (L1294, T331, R1299, B689)
+   | ['2025Dialog', 'Dialog5']
+   | 
+   | Pane - ''    (L628, T365, R1293, B688)
+   | ['Pane', 'User NamePane', 'Pane0', 'Pane1', 'User NamePane0', 'User NamePane1']
+   | child_window(auto_id="BaseWinForm_Fill_Panel", control_type="Pane")
+   |    | 
+   |    | Pane - ''    (L628, T365, R1293, B688)
+   |    | ['Pane2', 'User NamePane2']
+   |    | child_window(auto_id="67768", control_type="Pane")
+   |    |    | 
+   |    |    | ComboBox - ''    (L848, T509, R1186, B535)
+   |    |    | ['ComboBox', 'ComboBox2024 - 01 Apr 2024 To 31 Mar 2025', 'ComboBox2023 - 01 Apr 2023 To 31 Mar 2024', 'YearComboBox']
+   |    |    | child_window(auto_id="popAccYear", control_type="ComboBox")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L850, T510, R1166, B534)
+   |    |    |    | ['YearEdit', 'Edit', 'Edit0', 'Edit1']
+   |    |    |    | child_window(auto_id="[Editor] Edit Area", control_type="Edit")
+   |    |    |    | 
+   |    |    |    | Button - ''    (L1166, T510, R1184, B534)
+   |    |    |    | ['YearButton', 'Button', 'Button0', 'Button1']
+   |    |    |    | child_window(auto_id="[Editor] dropdown button", control_type="Button")
+   |    |    |    | 
+   |    |    |    | ListItem - '2025 - 01 Apr 2025 To 31 Mar 2026'    (L0, T0, R0, B0)
+   |    |    |    | ['2025 - 01 Apr 2025 To 31 Mar 2026ListItem', 'ListItem', '2025 - 01 Apr 2025 To 31 Mar 2026', 'ListItem0', 'ListItem1']
+   |    |    |    | child_window(title="2025 - 01 Apr 2025 To 31 Mar 2026", auto_id="[Editor] [valuelist] ValueListItem 0", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | ListItem - '2024 - 01 Apr 2024 To 31 Mar 2025'    (L0, T0, R0, B0)
+   |    |    |    | ['ListItem2', '2024 - 01 Apr 2024 To 31 Mar 2025ListItem', '2024 - 01 Apr 2024 To 31 Mar 2025']
+   |    |    |    | child_window(title="2024 - 01 Apr 2024 To 31 Mar 2025", auto_id="[Editor] [valuelist] ValueListItem 1", control_type="ListItem")
+   |    |    |    | 
+   |    |    |    | ListItem - '2023 - 01 Apr 2023 To 31 Mar 2024'    (L0, T0, R0, B0)
+   |    |    |    | ['ListItem3', '2023 - 01 Apr 2023 To 31 Mar 2024ListItem', '2023 - 01 Apr 2023 To 31 Mar 2024']
+   |    |    |    | child_window(title="2023 - 01 Apr 2023 To 31 Mar 2024", auto_id="[Editor] [valuelist] ValueListItem 2", control_type="ListItem")
+   |    |    | 
+   |    |    | Static - 'Year'    (L720, T509, R845, B535)
+   |    |    | ['Year', 'Static', 'YearStatic', 'Static0', 'Static1']
+   |    |    | child_window(title="Year", auto_id="67772", control_type="Text")
+   |    |    | 
+   |    |    | Edit - ''    (L848, T464, R1086, B490)
+   |    |    | ['PasswordEdit', 'Edit2', 'PasswordEdit0', 'PasswordEdit1']
+   |    |    | child_window(auto_id="txtUserPassword", control_type="Edit")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L851, T465, R1084, B489)
+   |    |    |    | ['PasswordEdit2', 'Edit3']
+   |    |    |    | child_window(auto_id="[Editor] Edit Area", control_type="Edit")
+   |    |    | 
+   |    |    | Static - 'Password'    (L720, T464, R845, B490)
+   |    |    | ['Password', 'Static2', 'PasswordStatic']
+   |    |    | child_window(title="Password", auto_id="67776", control_type="Text")
+   |    |    | 
+   |    |    | Edit - ''    (L848, T419, R1086, B445)
+   |    |    | ['User NameEdit', 'Edit4', 'User NameEdit0', 'User NameEdit1']
+   |    |    | child_window(auto_id="txtUserName", control_type="Edit")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L854, T424, R1084, B440)
+   |    |    |    | ['User NameEdit2', 'Edit5']
+   |    |    |    | child_window(auto_id="txtUserName_EmbeddableTextBox", control_type="Edit")
+   |    |    |    | 
+   |    |    |    | Edit - ''    (L0, T0, R0, B0)
+   |    |    |    | ['Edit6']
+   |    |    |    | child_window(auto_id="[Editor] Edit Area", control_type="Edit")
+   |    |    | 
+   |    |    | Static - 'User Name'    (L720, T419, R845, B445)
+   |    |    | ['Static3', 'User NameStatic', 'User Name']
+   |    |    | child_window(title="User Name", auto_id="67780", control_type="Text")
+   |    |    | 
+   |    |    | Button - 'Cancel'    (L981, T608, R1110, B639)
+   |    |    | ['CancelButton', 'Button2', 'Cancel']
+   |    |    | child_window(title="Cancel", auto_id="cmdCancel", control_type="Button")
+   |    |    | 
+   |    |    | Button - 'Login'    (L845, T608, R974, B639)
+   |    |    | ['LoginButton', 'Button3', 'Login']
+   |    |    | child_window(title="Login", auto_id="cmdOK", control_type="Button")
+   |    |    | 
+   |    |    | Static - '2025'    (L844, T550, R988, B573)
+   |    |    | ['Static4', '2025Static', '2025']
+   |    |    | child_window(title="2025", auto_id="lblAccYear", control_type="Text")
+   | 
+   | GroupBox - 'W'    (L626, T365, R627, B688)
+   | ['W', 'GroupBox', 'WGroupBox', 'W0', 'W1', 'GroupBox0', 'GroupBox1', 'WGroupBox0', 'WGroupBox1']
+   | child_window(title="W", auto_id="_MDIForm_UltraFormManager_Dock_Area_Left", control_type="Group")
+   | 
+   | GroupBox - 'W'    (L1293, T365, R1294, B688)
+   | ['W2', 'GroupBox2', 'WGroupBox2']
+   | child_window(title="W", auto_id="_MDIForm_UltraFormManager_Dock_Area_Right", control_type="Group")
+   | 
+   | GroupBox - 'W'    (L626, T331, R1294, B365)
+   | ['W3', 'GroupBox3', 'WGroupBox3']
+   | child_window(title="W", auto_id="_MDIForm_UltraFormManager_Dock_Area_Top", control_type="Group")
+   | 
+   | GroupBox - 'W'    (L626, T688, R1294, B689)
+   | ['W4', 'GroupBox4', 'WGroupBox4']
+   | child_window(title="W", auto_id="_MDIForm_UltraFormManager_Dock_Area_Bottom", control_type="Group")
+   | 
+   | TitleBar - ''    (L664, T341, R1284, B370)
+   | ['TitleBar']
+   |    | 
+   |    | Menu - 'System'    (L509, T273, R531, B295)
+   |    | ['Menu', 'SystemMenu', 'System', 'System0', 'System1']
+   |    | child_window(title="System", auto_id="MenuBar", control_type="MenuBar")
+   |    |    | 
+   |    |    | MenuItem - 'System'    (L509, T273, R531, B295)
+   |    |    | ['MenuItem', 'SystemMenuItem', 'System2']
+   |    |    | child_window(title="System", control_type="MenuItem")
+   |    | 
+   |    | Button - 'Minimize'    (L1200, T340, R1230, B370)
+   |    | ['Button4', 'Minimize', 'MinimizeButton']
+   |    | child_window(title="Minimize", control_type="Button")
+   |    | 
+   |    | Button - 'Maximize'    (L1228, T340, R1258, B370)
+   |    | ['Button5', 'MaximizeButton', 'Maximize']
+   |    | child_window(title="Maximize", control_type="Button")
+   |    | 
+   |    | Button - 'Close'    (L1255, T340, R1285, B370)
+   |    | ['CloseButton', 'Close', 'Button6']
+   |    | child_window(title="Close", control_type="Button")
