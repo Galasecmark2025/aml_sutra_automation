@@ -12,10 +12,10 @@ from fetch_table_data import fetch_table_data
 from setup_logger import setup_logger
 from login import login
 
-def fetch_dropdown_value(window, dropdown_auto_id, value, logger):
+def fetch_dropdown_value(window, dropdown_auto_id, control_type, value, logger):
     combobox = window.child_window(
         auto_id=dropdown_auto_id,
-        control_type="ComboBox"
+        control_type=control_type
     )
     dropdown_btn = combobox.child_window(
         auto_id="[Editor] dropdown button",
@@ -49,6 +49,7 @@ def perform_actions(window, actions, logger):
         proc_type = action.get("proc_type")
         proc_ids = action.get("proc_ids", None)
         date = action.get("date")
+        date = "11/05/2026"
         
         main_menu_btn = window.child_window(
             title=main_menu,
@@ -69,8 +70,9 @@ def perform_actions(window, actions, logger):
             
         company_list = fetch_company_list(window, logger)
         logger.info(f"Found companies: {company_list}")
-        fetch_dropdown_value(window, "popCBECode", company, logger)
-        fetch_dropdown_value(window, "popProcType", proc_type, logger)
+        fetch_dropdown_value(window, "popCBECode", "ComboBox", company, logger)
+        fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
+        fetch_dropdown_value(window, "boxDate", "Group", date, logger)
         process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
         table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
         logger.info(f"Table Process IDs: {table_process_ids_list}")
