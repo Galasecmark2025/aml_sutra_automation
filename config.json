@@ -10,30 +10,7 @@
       "sub_menu":"Alert Generation",
       "company":"Captial Market [11]",
       "process_type":"7 - TRTradeSummary",
-      "proc_ids": [138, 137],
-      "date" : "18-May-2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Common Import",
-      "company":"Future and Options [12]",
-      "process_type":"7 - TRTradeSummary",
-      "date" : "18-May-2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Common Import",
-      "company_proc_ids": [
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]},
-        {"1700": [170, 172, 177]}
-      ],
-      "company":"Future and Options [12]",
-      "process_type":"7 - TRTradeSummary",
+      "proc_ids": [138, 141],
       "date" : "18-May-2026"
     }
   ]
