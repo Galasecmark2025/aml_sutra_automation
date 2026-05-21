@@ -3,55 +3,5 @@
   "credential": {
       "username":"cadmin",
       "password": "admin"
-  },
-  "actions": [
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Captial Market [11]",
-      "proc_type": "7 - TRTradeSummary",
-      "proc_ids": [137, 138],
-      "date" : "11/May/2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Futures and Options - [ 12 ]",
-      "proc_type": "7 - TRTradeSummary",
-      "proc_ids": [140, 185],
-      "date" : "11/May/2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Commodity Derivative - [ 14 ]",
-      "proc_type": "7 - TRTradeSummary",
-      "proc_ids": [179, 141],
-      "date" : "11/May/2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Captial Market [11]",
-      "proc_type": "9 - TRSettlementProcess",
-      "proc_ids": [144],
-      "date" : "11/May/2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Futures and Options - [ 12 ]",
-      "proc_type": "9 - TRSettlementProcess",
-      "proc_ids": [144],
-      "date" : "11/May/2026"
-    },
-    {
-      "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Commodity Derivative - [ 14 ]",
-      "proc_type": "9 - TRSettlementProcess",
-      "proc_ids": [144],
-      "date" : "11/May/2026"
-    }
-  ]
+  }
 }
