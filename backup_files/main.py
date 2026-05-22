@@ -1,7 +1,7 @@
-from crypto_util import CryptoUtil
+from utilities.crypto_util import CryptoUtil
 
 # Encrypt
-encrypted = CryptoUtil.encrypt("MyPassword123")
+encrypted = CryptoUtil.encrypt("admin")
 
 print("Encrypted:")
 print(encrypted)

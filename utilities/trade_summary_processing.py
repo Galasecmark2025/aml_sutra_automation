@@ -42,22 +42,25 @@ def trade_summary_processing(window, logger):
     except Exception as e:
         logger.warning(f"Login validation handling error: {e}")
     # window.print_control_identifiers(filename="error_msg_controls.txt")
-    trial = 1
-    for i in range(1, 4):
+    trial = 0
+    max_trials = get_config(value="number_of_trials")
+    waittime = get_config(value="waittime(seconds)")
+    for i in range(0, max_trials):
         processed = True
         table_data = fetch_table_data(window, "DataItem", ["Proc ID", "Status"], logger=logger)
         
         for row in table_data:
             status_raw = row.get("Status")
             status = ("" if status_raw is None else str(status_raw).strip().lower())
-            if status != "" and status != "finished":
-                logger.warning(f'Trial {i}/3 Current status: {status} for {row.get("Proc ID", "")}, waiting for status update...')
+            if status != "" and "processing" in status:
+            # if status != "" and status == "finished":
+                logger.warning(f'Trial {i+1}/3 Current status: {status} for {row.get("Proc ID", "")}, waiting for status update...')
                 processed = False
-                time.sleep(2)
+        time.sleep(waittime)
             
         trial += 1
         if processed:
             return table_data
-        elif (not processed) and trial == 4:
+        elif (not processed) and trial == max_trials:
             logger.warning(f"Process took longer time than usual")
             return table_data

@@ -1,3 +1,5 @@
+# perform_actions.py
+
 from pywinauto.keyboard import send_keys
 import time
 
@@ -22,7 +24,6 @@ def perform_actions(window, actions, logger):
         
         main_menu_btn = window.child_window(
             title=main_menu,
-            # auto_id="[MainMenu : MainMenu Tools] Tool : 3904000000 - Index : 3 ",
             control_type="MenuItem"
         )
         time.sleep(0.5)
@@ -30,7 +31,6 @@ def perform_actions(window, actions, logger):
         time.sleep(1)
         sub_menu_btn = window.child_window(
             title=sub_menu,
-            # auto_id="[MainMenu : MainMenu Tools] Tool : 3904000000 - Index : 3 ",
             control_type="MenuItem"
         )
         time.sleep(0.5)
@@ -50,6 +50,7 @@ def perform_actions(window, actions, logger):
         process_all = False
         if proc_ids is None:
             process_all = True
+        config_process_ids_list = []
         if proc_ids:
             config_process_ids_list = [
                 str(pid)
@@ -67,11 +68,11 @@ def perform_actions(window, actions, logger):
         if config_process_ids_list:
             is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
         else:
-            is_processed = validate_processed_data(post_process_table_data, process_ids, logger)
+            is_processed = validate_processed_data(post_process_table_data, table_process_ids_list, logger)
             
         if not is_processed:
             logger.warning(f"Process failure")
         try:
-            close_opened_window(window)
+            close_opened_window(window, logger)
         except:
             send_keys("{ESC}")

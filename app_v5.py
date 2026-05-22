@@ -4,6 +4,7 @@ import time
 from utilities.connect_or_start_app import connect_or_start_app
 from utilities.perform_actions import perform_actions
 from utilities.setup_logger import setup_logger
+from utilities.crypto_util import CryptoUtil
 from utilities.get_config import get_config
 from utilities.login import login
 
@@ -25,9 +26,10 @@ def run():
     
     credentials = config.get("credential", "")
     username = credentials.get("username", "")
-    password = credentials.get("password", "")
+    password_encrypted = credentials.get("password", "")
+    password_decrypted = CryptoUtil.decrypt(password_encrypted)
     if "Login" in window_title:
-        login(window, username, password, logger)
+        login(window, username, password_decrypted, logger)
 
     new_window = app.window(title="AMLSutra (1.0.0) : PMLA [TRAMLSutra]")
     new_window.wait("exists enabled visible ready", timeout=30)
