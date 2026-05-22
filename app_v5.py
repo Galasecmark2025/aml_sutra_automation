@@ -1,39 +1,13 @@
-import ujson as json
-import time, os, sys
+from pathlib import Path
+import time
 
 from utilities.connect_or_start_app import connect_or_start_app
 from utilities.perform_actions import perform_actions
 from utilities.setup_logger import setup_logger
+from utilities.get_config import get_config
 from utilities.login import login
 
 logger = setup_logger()
-def get_config():
-    with open("config.json", "r", encoding="utf-8") as fp:
-        config = json.load(fp)
-    return config if config else None
-
-def get_actions_from_command():
-    """
-    Usage:
-    python app.py actions.json
-    """
-    if len(sys.argv) > 1:
-        file_path = sys.argv[1]
-
-        if os.path.exists(file_path):
-            try:
-                with open(file_path, "r", encoding="utf-8") as fp:
-                    data = json.load(fp)
-
-                return data.get("actions", [])
-
-            except Exception as e:
-                logger.error(f"Failed to read action file: {e}")
-
-        else:
-            logger.error(f"File not found: {file_path}")
-
-    return []
 
 def run():
     config = get_config()
@@ -62,7 +36,9 @@ def run():
     new_window = app.top_window()
     logger.info(new_window.window_text())
     
-    actions = get_actions_from_command()
+    # actions = get_actions_from_command()
+    actions_json = get_config("actions.json")
+    actions = actions_json.get("actions")
     print(f"Fetched action details: {actions}")
     if actions:
         perform_actions(new_window, actions, logger)

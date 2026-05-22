@@ -17,9 +17,8 @@ def perform_actions(window, actions, logger):
         sub_menu = action.get("sub_menu")
         company = action.get("company")
         proc_type = action.get("proc_type")
-        proc_ids = action.get("proc_ids", None)
+        proc_ids = action.get("proc_ids")
         date = action.get("date")
-        date = "11/05/2026"
         
         main_menu_btn = window.child_window(
             title=main_menu,
@@ -41,8 +40,10 @@ def perform_actions(window, actions, logger):
         company_list = fetch_company_list(window, logger)
         logger.info(f"Found companies: {company_list}")
         fetch_dropdown_value(window, "popCBECode", "ComboBox", company, logger)
-        fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
-        fetch_dropdown_value(window, "boxDate", "Group", date, logger)
+        if proc_type:
+            fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
+        if date:
+            fetch_dropdown_value(window, "boxDate", "Group", date, logger)
         process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
         table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
         logger.info(f"Table Process IDs: {table_process_ids_list}")
@@ -63,7 +64,11 @@ def perform_actions(window, actions, logger):
             mark_rows_by_process_ids(window, process_ids=config_process_ids_list, logger=logger)
         post_process_table_data = trade_summary_processing(window, logger)
         logger.info(f"Post process table data: {post_process_table_data}")
-        is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
+        if config_process_ids_list:
+            is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
+        else:
+            is_processed = validate_processed_data(post_process_table_data, process_ids, logger)
+            
         if not is_processed:
             logger.warning(f"Process failure")
         try:
