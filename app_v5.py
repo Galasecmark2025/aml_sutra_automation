@@ -1,10 +1,10 @@
 import ujson as json
 import time, os, sys
 
-from connect_or_start_app import connect_or_start_app
-from perform_actions import perform_actions
-from setup_logger import setup_logger
-from login import login
+from utilities.connect_or_start_app import connect_or_start_app
+from utilities.perform_actions import perform_actions
+from utilities.setup_logger import setup_logger
+from utilities.login import login
 
 logger = setup_logger()
 def get_config():
