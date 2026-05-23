@@ -11,7 +11,7 @@ from utilities.close_opened_window import close_opened_window
 from utilities.fetch_company_list import fetch_company_list
 from utilities.fetch_table_data import fetch_table_data
 
-def perform_actions(window, actions, logger):
+def perform_actions(window, actions, read_path, logger):
     for action in actions:
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
@@ -35,7 +35,7 @@ def perform_actions(window, actions, logger):
         )
         time.sleep(0.5)
         sub_menu_btn.click_input()
-        time.sleep(3)
+        time.sleep(1)
             
         company_list = fetch_company_list(window, logger)
         logger.info(f"Found companies: {company_list}")
@@ -63,7 +63,7 @@ def perform_actions(window, actions, logger):
         elif config_process_ids_list:    
             logger.info(f"IDs to process: {config_process_ids_list}")
             mark_rows_by_process_ids(window, process_ids=config_process_ids_list, logger=logger)
-        post_process_table_data = trade_summary_processing(window, logger)
+        post_process_table_data = trade_summary_processing(window, read_path, logger)
         logger.info(f"Post process table data: {post_process_table_data}")
         if config_process_ids_list:
             is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)

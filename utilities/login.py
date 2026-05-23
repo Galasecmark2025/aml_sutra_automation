@@ -53,8 +53,8 @@ def login(window, username, password, logger):
                 if (btn.window_text().strip().lower() == "login"):
                     login_button = btn
                     break
-            except:
-                pass
+            except Exception:
+                continue
 
         if not login_button:
             logger.warning("Login button not found")
@@ -63,6 +63,7 @@ def login(window, username, password, logger):
         # CLICK LOGIN
         login_button.click_input()
         logger.info("Login button clicked")
+        time.sleep(2)
         
         try:
             dialogs = (window.descendants(control_type="Window"))
@@ -72,22 +73,30 @@ def login(window, username, password, logger):
                     title = dialog.window_text().strip().lower()
                     if title == "isac":
                         login_validation_window = dialog
-                except:
-                    pass
-            if login_validation_window:
-                yes_btns = login_validation_window.descendants(
-                    title="Yes", 
-                    control_type="Button"
-                )
-                yes_btns[0].click_input()
-                logger.info("Trying to login even after logged in another device")
+                        if login_validation_window:
+                            yes_btns = login_validation_window.descendants(
+                                title="Yes", 
+                                control_type="Button"
+                            )
+                            if yes_btns:
+                                yes_btns[0].click_input()
+                                logger.info("Trying to login even after logged in another device")
+                            break
+                        
+                except Exception:
+                    continue
+            
         except Exception as e:
-            logger.warning(f"Login validation handling error: {e}")
+            error_text = str(e).lower()
+
+            # Ignore harmless pywinauto/UIA event error
+            if "unable to invoke any of the subscribers" not in error_text:
+                logger.info(f"Login validation skipped: {e}")
         
-        window.print_control_identifiers(filename="login_validation_controls.txt")
+        # window.print_control_identifiers(filename="login_validation_controls.txt")
 
         return True
 
     except Exception as e:
-        logger.warning(f"Login failed: {e}")
+        logger.error(f"Login failed: {e}")
         return False

@@ -11,16 +11,15 @@ def fetch_dropdown_value(window, dropdown_auto_id, control_type, value, logger):
             auto_id="[Editor] dropdown button",
             control_type="Button"
         )
-        time.sleep(1)
         
         dropdown_btn.click_input()
         time.sleep(1)
         
         send_keys(value)
-        time.sleep(1)
+        time.sleep(0.5)
 
         # PRESS ENTER
         send_keys("{ENTER}")
-        time.sleep(2)
+        time.sleep(0.5)
     except Exception as e:
         logger.warning(f"Error occurred while fetching dropdown: {e}")

@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 logs/
+dist/
+build/
+*.spec
+*.zip
