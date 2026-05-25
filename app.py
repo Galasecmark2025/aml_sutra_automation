@@ -1,14 +1,13 @@
 # app.py
 
+from pywinauto.application import Application
 import time, sys, os
 
-from utilities.connect_or_start_app import connect_or_start_app
 from utilities.perform_actions import perform_actions
 from utilities.setup_logger import setup_logger
 from utilities.crypto_util import CryptoUtil
 from utilities.get_config import get_config
 from utilities.login import login
-
 
 def get_base_path():
     """
@@ -36,7 +35,11 @@ def run():
     if not exe_path:
         logger.warning("exe_path missing in config")
         return
-    app, window = connect_or_start_app(exe_path)
+    # app, window = connect_or_start_app(exe_path)
+    app = Application(backend="uia").start(exe_path)
+    window = app.top_window()
+    window.maximize()
+    window.set_focus()
     
     window_title = window.window_text()
     logger.info(f"Current Window: {window_title}")
