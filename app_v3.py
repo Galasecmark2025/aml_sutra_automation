@@ -2,15 +2,15 @@ from pywinauto.keyboard import send_keys
 import ujson as json
 import time
 
-from trade_summary_processing import trade_summary_processing
-from mark_rows_by_process_ids import mark_rows_by_process_ids
-from validate_processed_data import validate_processed_data
-from connect_or_start_app import connect_or_start_app
-from close_opened_window import close_opened_window
-from fetch_company_list import fetch_company_list
-from fetch_table_data import fetch_table_data
-from setup_logger import setup_logger
-from login import login
+from utilities.trade_summary_processing import trade_summary_processing
+from utilities.mark_rows_by_process_ids import mark_rows_by_process_ids
+from utilities.validate_processed_data import validate_processed_data
+from utilities.connect_or_start_app import connect_or_start_app
+from utilities.close_opened_window import close_opened_window
+from utilities.fetch_company_list import fetch_company_list
+from utilities.fetch_table_data import fetch_table_data
+from utilities.setup_logger import setup_logger
+from utilities.login import login
 
 logger = setup_logger()
 def get_config():

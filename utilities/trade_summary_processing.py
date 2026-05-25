@@ -1,5 +1,5 @@
 import time
-from fetch_table_data import fetch_table_data
+from utilities.fetch_table_data import fetch_table_data
 
 def trade_summary_processing(window_obj, logger):
     process_doc_option = window_obj.child_window(

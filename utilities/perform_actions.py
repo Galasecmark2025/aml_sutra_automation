@@ -1,12 +1,13 @@
-import time
-from trade_summary_processing import trade_summary_processing
-from mark_rows_by_process_ids import mark_rows_by_process_ids
-from validate_processed_data import validate_processed_data
-from fetch_dropdown_value import fetch_dropdown_value
-from close_opened_window import close_opened_window
-from fetch_company_list import fetch_company_list
-from fetch_table_data import fetch_table_data
 from pywinauto.keyboard import send_keys
+import time
+
+from utilities.trade_summary_processing import trade_summary_processing
+from utilities.mark_rows_by_process_ids import mark_rows_by_process_ids
+from utilities.validate_processed_data import validate_processed_data
+from utilities.fetch_dropdown_value import fetch_dropdown_value
+from utilities.close_opened_window import close_opened_window
+from utilities.fetch_company_list import fetch_company_list
+from utilities.fetch_table_data import fetch_table_data
 
 def perform_actions(window, actions, logger):
     for action in actions:
