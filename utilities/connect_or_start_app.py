@@ -1,15 +1,25 @@
 from pywinauto.application import Application
 import time
 
-def connect_or_start_app(exe_path, window_title="AMLSutra"):
+def connect_or_start_app(exe_path, window_title="AMLSutra(1.0.0)"):
     try:
         # Try connecting to already running app
+        # app = Application(backend="uia").connect(
+        #     title_re=f".*{window_title}.*",
+        #     timeout=5
+        # )
+
+        # window = app.top_window()
+
         app = Application(backend="uia").connect(
-            title_re=f".*{window_title}.*",
+            title_re=r".*AMLSutra.*",
             timeout=5
         )
 
-        window = app.top_window()
+        # Explicitly get the correct window
+        window = app.window(
+            title_re=r".*AMLSutra.*TRAMLSutra.*"
+        )
 
         # Restore if minimized
         try:

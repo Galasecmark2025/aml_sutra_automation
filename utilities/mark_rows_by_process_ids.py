@@ -18,7 +18,7 @@ def mark_rows_by_process_ids(window_obj, process_all=False, process_ids=None, lo
             y = rect.top + (rect.height() // 2)
 
             click(coords=(x, y))
-            time.sleep(2)
+            time.sleep(1)
             return
 
         elif process_ids:
