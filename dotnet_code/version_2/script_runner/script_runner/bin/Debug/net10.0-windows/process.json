@@ -1,0 +1,11 @@
+{
+  "main_menu": "process",
+  "sub_menu": "aler generation ",
+  "company": "captial market ",
+  "proc_type": "trtradesummary",
+  "proc_ids": [
+    123,
+    124
+  ],
+  "date": "25-May-2026"
+}
