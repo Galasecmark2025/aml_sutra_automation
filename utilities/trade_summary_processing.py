@@ -35,7 +35,7 @@ def handle_error_window(window, error_bypass, logger):
                 continue
 
     except Exception as e:
-        logger.warning(f"Error dialog handling failed: {e}")
+        logger.error(f"Error dialog handling failed: {e}")
 
     return False
 
@@ -47,16 +47,19 @@ def trade_summary_processing(window, read_path, logger):
 
     waittime = get_config(read_path,value="waittime(seconds)",logger=logger) or 5
 
-    process_doc_option = window.child_window(
-        title="Process",
-        auto_id="[Toolbar : Process Tools] Tool : PR01 - Index : 0 ",
-        control_type="Button"
-    )
+    try:
+        process_doc_option = window.child_window(
+            title="Process",
+            auto_id="[Toolbar : Process Tools] Tool : PR01 - Index : 0 ",
+            control_type="Button"
+        )
 
-    process_doc_option.click_input()
+        process_doc_option.click_input()
 
-    logger.info("Process button clicked.")
-
+        logger.info("Process button clicked.")
+    except Exception as e:
+        logger.error(f"Failed to click process button: {e}")
+        return []
     last_table_data = []
 
     for trial in range(max_trials):
@@ -100,6 +103,6 @@ def trade_summary_processing(window, read_path, logger):
         # WAIT BEFORE NEXT CHECK
         time.sleep(waittime)
 
-    logger.warning("Process took longer than expected.")
+    logger.error("Process took longer than expected.")
 
     return last_table_data

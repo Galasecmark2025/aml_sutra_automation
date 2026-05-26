@@ -1,49 +1,3 @@
-# import base64
-# import hashlib
-# from cryptography.fernet import Fernet
-
-# class CryptoUtil:
-
-#     # Secret passphrase
-#     PASSPHRASE = "Sec@Mark#22_05_26$_Aml_PW"
-
-#     @staticmethod
-#     def _generate_key():
-#         """
-#         Generates a Fernet-compatible key from passphrase
-#         """
-#         key = hashlib.sha256(
-#             CryptoUtil.PASSPHRASE.encode()
-#         ).digest()
-
-#         return base64.urlsafe_b64encode(key)
-
-#     @staticmethod
-#     def encrypt(text):
-#         """
-#         Encrypt plain text
-#         """
-#         key = CryptoUtil._generate_key()
-#         cipher = Fernet(key)
-
-#         encrypted_text = cipher.encrypt(text.encode())
-
-#         return encrypted_text.decode()
-
-#     @staticmethod
-#     def decrypt(encrypted_text):
-#         """
-#         Decrypt encrypted text
-#         """
-#         key = CryptoUtil._generate_key()
-#         cipher = Fernet(key)
-
-#         decrypted_text = cipher.decrypt(
-#             encrypted_text.encode()
-#         ).decode()
-
-#         return decrypted_text
-
 import base64
 import hashlib
 from Crypto.Cipher import AES
@@ -67,38 +21,24 @@ class CryptoUtil:
 
         key = CryptoUtil._get_key()
 
-        cipher = AES.new(
-            key,
-            AES.MODE_CBC,
-            CryptoUtil.IV
-        )
+        cipher = AES.new(key,AES.MODE_CBC,CryptoUtil.IV)
 
-        encrypted_bytes = cipher.encrypt(
-            pad(text.encode(), AES.block_size)
-        )
+        encrypted_bytes = cipher.encrypt(pad(text.encode(), AES.block_size))
 
-        return base64.b64encode(
-            encrypted_bytes
-        ).decode()
+        return base64.b64encode(encrypted_bytes).decode()
 
     @staticmethod
     def decrypt(encrypted_text):
+        try:
+            key = CryptoUtil._get_key()
 
-        key = CryptoUtil._get_key()
+            encrypted_bytes = base64.b64decode(encrypted_text)
 
-        encrypted_bytes = base64.b64decode(
-            encrypted_text
-        )
+            cipher = AES.new(key,AES.MODE_CBC,CryptoUtil.IV)
 
-        cipher = AES.new(
-            key,
-            AES.MODE_CBC,
-            CryptoUtil.IV
-        )
+            decrypted = unpad(cipher.decrypt(encrypted_bytes),AES.block_size)
 
-        decrypted = unpad(
-            cipher.decrypt(encrypted_bytes),
-            AES.block_size
-        )
-
-        return decrypted.decode()
+            return decrypted.decode()
+        except Exception as e:
+            e.add_note(f"Failed to decrypt give text: {encrypted_text}")
+            raise

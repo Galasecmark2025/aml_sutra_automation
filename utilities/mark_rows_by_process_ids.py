@@ -81,11 +81,11 @@ def mark_rows_by_process_ids(window_obj, process_all=False, process_ids=None, lo
                             logger.info(f"Marked Proc ID: {proc_id}")
 
                         except Exception as e:
-                            logger.warning(f"Checkbox failed for {proc_id}: {e}")
+                            logger.error(f"Checkbox failed for {proc_id}: {e}")
 
                 except Exception as e:
-                    logger.warning(f"Row {row_index} failed: {e}")
+                    logger.error(f"Row {row_index} failed: {e}")
 
             logger.info(f"Total marked rows: {marked_count}")   
     except Exception as e:
-        logger.warning(f"Error occurred while row marking: {e}")
+        logger.error(f"Error occurred while row marking: {e}")

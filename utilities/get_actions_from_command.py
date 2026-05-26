@@ -24,4 +24,4 @@ def get_actions_from_command(logger):
 
         return []
     except Exception as e:
-        logger.warning(f"Error occurred while reading command line input: {e}")
+        logger.error(f"Error occurred while reading command line input: {e}")

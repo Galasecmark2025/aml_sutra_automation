@@ -29,4 +29,4 @@ def fetch_proc_type_list(window, logger):
                 logger.warning(f"Error reading item {index}: {e}")
         return company_list
     except Exception as e:
-        logger.warning(f"Error occurred while fetching process list: {e}")
+        logger.error(f"Error occurred while fetching process list: {e}")

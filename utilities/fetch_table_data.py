@@ -33,7 +33,7 @@ def fetch_table_data(window_obj, control_type="DataItem", column_list=[], logger
                 
 
             except Exception as e:
-                logger.warning(f"Error in row {row_index}: {e}")
+                logger.error(f"Error in row {row_index}: {e}")
         return table_data
     except Exception as e:
-        logger.warning(f"Error occurred while fetching table data: {e}")
+        logger.error(f"Error occurred while fetching table data: {e}")
