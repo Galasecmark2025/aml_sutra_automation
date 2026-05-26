@@ -1,7 +1,7 @@
 # app.py
 
 from pywinauto.application import Application
-import time, sys, os
+import time, sys, os, re
 
 from utilities.perform_actions import perform_actions
 from utilities.setup_logger import setup_logger
@@ -28,6 +28,7 @@ def wait_for_window(app, logger, timeout=30):
     """
     Wait for AML main window after login
     """
+    pattern = r"^AMLSutra\s*\(([\d\.]+)\)\s*:\s*([^\[]+)\[([^\]]+)\]$"
     start = time.time()
 
     while time.time() - start < timeout:
@@ -39,14 +40,15 @@ def wait_for_window(app, logger, timeout=30):
 
                 logger.info(f"Detected Window: {title}")
 
-                # Match AML main window
-                if (
-                    "AMLSutra" in title
-                    and "TRAMLSutra" in title
-                ):
-                    logger.info(f"Matched Window: {title}")
+                # 1. STRICT PATTERN MATCH
+                if re.match(pattern, title, re.IGNORECASE):
+                    logger.info(f"Pattern matched window: {title}")
+                    return app.window(title=title)
 
-                    return app.window(title_re=r".*AMLSutra.*TRAMLSutra.*")
+                # 2. FALLBACK: NOT LOGIN WINDOW
+                if title and "login" not in title.lower():
+                    logger.info(f"Fallback matched window: {title}")
+                    return app.window(title=title)
 
         except Exception as e:
             logger.warning(f"Waiting for window: {e}")

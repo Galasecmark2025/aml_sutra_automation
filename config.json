@@ -1,0 +1,9 @@
+{
+  "exe_path": "D:\\DB&Exc\\TRAMLSUTRA_15052026\\AMLSutra.exe",
+  "credential": {
+      "username":"cadmin",
+      "password": "oWRj+Q2M7w5r8MIIS/DBhQ=="
+  }, 
+  "waittime(seconds)":3, 
+  "number_of_trials": 3
+}
