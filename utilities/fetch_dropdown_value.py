@@ -22,4 +22,4 @@ def fetch_dropdown_value(window, dropdown_auto_id, control_type, value, logger):
         send_keys("{ENTER}")
         time.sleep(0.5)
     except Exception as e:
-        logger.warning(f"Error occurred while fetching dropdown: {e}")
+        logger.error(f"Error occurred while fetching dropdown: {e}")
