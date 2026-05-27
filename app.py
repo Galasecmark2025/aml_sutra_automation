@@ -153,7 +153,7 @@ def run():
     actions = actions_json.get("actions", [])
     print(f"Fetched action details: {actions}")
     if actions:
-        perform_actions(new_window, actions, read_path, logger)
+        perform_actions(new_window, actions, read_path, write_path, logger)
     
     time.sleep(2)
     try:

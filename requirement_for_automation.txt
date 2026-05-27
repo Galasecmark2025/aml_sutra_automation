@@ -1,0 +1,13 @@
+1. Use existing app if opened or open new instance of app everytime - configuration based.
+ - add 2 configuration parameter - yes/no, window title regex.
+
+2. New configuration parameter - only_error_ss > yes/no
+ - if yes it should take ss for failure only.
+ - if no then it should take ss for failure as well as success.
+
+3. .Net utility for password encryption/decryption.
+ - command line utility(exe/cmd) which accept 2 parameters > action, input.
+ - action can be e/d.
+
+4. Json validations
+ - Vishal to discuss this requirement with Kamlesh bhai and Vishal Sahani.

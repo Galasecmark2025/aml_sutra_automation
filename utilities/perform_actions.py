@@ -9,9 +9,10 @@ from utilities.validate_processed_data import validate_processed_data
 from utilities.fetch_dropdown_value import fetch_dropdown_value
 from utilities.close_opened_window import close_opened_window
 from utilities.fetch_company_list import fetch_company_list
+from utilities.capture_screenshot import capture_screenshot
 from utilities.fetch_table_data import fetch_table_data
 
-def perform_actions(window, actions, read_path, logger):
+def perform_actions(window, actions, read_path, write_path, logger):
     for action in actions:
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
@@ -72,6 +73,10 @@ def perform_actions(window, actions, read_path, logger):
             
         if not is_processed:
             logger.warning(f"Process failure")
+        else: 
+            logger.info("Action performed successfully")
+            capture_screenshot(write_path, logger)
+            
         try:
             close_opened_window(window, logger)
         except:
