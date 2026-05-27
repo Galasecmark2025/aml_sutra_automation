@@ -12,7 +12,7 @@ from utilities.fetch_company_list import fetch_company_list
 from utilities.capture_screenshot import capture_screenshot
 from utilities.fetch_table_data import fetch_table_data
 
-def perform_actions(window, actions, read_path, write_path, logger):
+def perform_actions(window, actions, read_path, write_path, logger, error_screenshots_only=True):
     for action in actions:
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
@@ -75,7 +75,8 @@ def perform_actions(window, actions, read_path, write_path, logger):
             logger.warning(f"Process failure")
         else: 
             logger.info("Action performed successfully")
-            capture_screenshot(write_path, logger)
+            if not error_screenshots_only:
+                capture_screenshot(write_path, logger)
             
         try:
             close_opened_window(window, logger)

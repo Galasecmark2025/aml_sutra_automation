@@ -5,5 +5,7 @@
       "password": "oWRj+Q2M7w5r8MIIS/DBhQ=="
   }, 
   "waittime(seconds)":3, 
-  "number_of_trials": 3
+  "number_of_trials": 3, 
+  "error_screenshots_only": false, 
+  "use_fresh_instance": false
 }

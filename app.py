@@ -1,8 +1,10 @@
 # app.py
 
 from pywinauto.application import Application
-import time, sys, os, re
+import time, sys, os
 
+from utilities.connect_or_start_app import connect_or_start_app
+from utilities.wait_for_window import wait_for_window
 from utilities.perform_actions import perform_actions
 from utilities.setup_logger import setup_logger
 from utilities.crypto_util import CryptoUtil
@@ -24,39 +26,6 @@ def get_base_path():
 
     return base_path, base_path
 
-def wait_for_window(app, logger, timeout=30):
-    """
-    Wait for AML main window after login
-    """
-    pattern = r"^AMLSutra\s*\(([\d\.]+)\)\s*:\s*([^\[]+)\[([^\]]+)\]$"
-    start = time.time()
-
-    while time.time() - start < timeout:
-        try:
-            windows = app.windows()
-
-            for w in windows:
-                title = w.window_text()
-
-                logger.info(f"Detected Window: {title}")
-
-                # 1. STRICT PATTERN MATCH
-                if re.match(pattern, title, re.IGNORECASE):
-                    logger.info(f"Pattern matched window: {title}")
-                    return app.window(title=title)
-
-                # 2. FALLBACK: NOT LOGIN WINDOW
-                if title and "login" not in title.lower():
-                    logger.info(f"Fallback matched window: {title}")
-                    return app.window(title=title)
-
-        except Exception as e:
-            logger.warning(f"Waiting for window: {e}")
-
-        time.sleep(1)
-
-    return None
-
 def run():
     read_path, write_path = get_base_path()
     logger = setup_logger(write_path)
@@ -68,58 +37,17 @@ def run():
     if not exe_path:
         logger.warning("exe_path missing in config")
         return
-    # app, window = connect_or_start_app(exe_path)
-    logger.info("Opening new AMLSutra instance...")
-    app = None
-    window = None
-    max_trials = 3
+    
+    use_fresh_instance = config.get("use_fresh_instance",False)
+    
+    logger.info("Checking AMLSutra instance...")
 
-    for trial in range(1, max_trials + 1):
-        window = None
-        try:
-            logger.info(f"Launching application (Attempt {trial}/{max_trials})")
+    try:
+        app, window, already_running = (
+            connect_or_start_app(exe_path,logger,max_trials=3,force_new=use_fresh_instance))
 
-            app = Application(backend="uia").start(exe_path)
-
-            # Wait for app to initialize
-            time.sleep(5)
-
-            # Retry getting top window
-            start = time.time()
-
-            while time.time() - start < 20:
-                try:
-                    window = app.top_window()
-
-                    if window.exists():
-                        logger.info("Application window found")
-                        break
-
-                except Exception:
-                    pass
-
-                time.sleep(1)
-
-            if window:
-                break
-
-            raise RuntimeError("No window detected")
-
-        except Exception as e:
-            logger.warning(f"Attempt {trial} failed: {str(e)}")
-
-            # Kill broken process before retry
-            try:
-                if app:
-                    app.kill()
-            except Exception:
-                pass
-
-            time.sleep(3)
-
-    # Final validation
-    if not window:
-        logger.error(f"Failed to launch application after {max_trials} attempts")
+    except Exception as e:
+        logger.error(f"Failed to start/connect AMLSutra: {str(e)}")
         return
     
     credentials = config.get("credential", {})
@@ -127,19 +55,31 @@ def run():
     password_encrypted = credentials.get("password", "")
     password_decrypted = CryptoUtil.decrypt(password_encrypted)
 
-    window = app.window(title_re=r".*AMLSutra.*Login.*")
-    window.wait("exists", timeout=30)
-    logger.info(f"Current Window: {window.window_text()}")
-    login(window, username, password_decrypted, logger)
-    
-    new_window = wait_for_window(app, logger)
+    if already_running:
+        logger.info("Existing AMLSutra instance detected")
 
-    if not new_window:
-        logger.error("AMLSutra window not found after login")
-        return
+        # Re-fetch as WindowSpecification
+        new_window = app.window(title=window.window_text())
+
+    else:
+        logger.info("Fresh AMLSutra instance started")
+
+        login_window = app.window(title_re=r".*AMLSutra.*Login.*")
+
+        login_window.wait("ready",timeout=30)
+
+        logger.info(f"Current Window: {login_window.window_text()}")
+
+        login(login_window,username,password_decrypted,logger)
+
+        new_window = wait_for_window(app,logger)
+
+        if not new_window:
+            logger.error("AMLSutra window not found after login")
+            return
 
     try:
-        new_window.wait("exists", timeout=30)
+        new_window.wait("ready", timeout=30)
         time.sleep(2)
         new_window.maximize()
         new_window.set_focus()
@@ -152,15 +92,23 @@ def run():
     actions_json = get_config(read_path, "actions.json", logger=logger)
     actions = actions_json.get("actions", [])
     print(f"Fetched action details: {actions}")
+    error_screenshots_only = config.get("error_screenshots_only", True)
     if actions:
-        perform_actions(new_window, actions, read_path, write_path, logger)
+        perform_actions(new_window, actions, read_path, write_path, logger, error_screenshots_only)
     
     time.sleep(2)
+    # try:
+    #     if app and not already_running:
+    #         logger.info("Closing AMLSutra instance")
+    #         app.kill()            
     try:
         if app:
+            logger.info("Closing AMLSutra instance")
             app.kill()
+
     except Exception as e:
         logger.error(f"Failed to close app: {str(e)}")
+
 
 if __name__ == '__main__':
     run()
