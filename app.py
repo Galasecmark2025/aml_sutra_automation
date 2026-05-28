@@ -39,12 +39,13 @@ def run():
         return
     
     use_fresh_instance = config.get("use_fresh_instance",False)
+    window_pattern = config.get("window_pattern")
     
     logger.info("Checking AMLSutra instance...")
 
     try:
         app, window, already_running = (
-            connect_or_start_app(exe_path,logger,max_trials=3,force_new=use_fresh_instance))
+            connect_or_start_app(exe_path,window_pattern,logger,max_trials=3,force_new=use_fresh_instance))
 
     except Exception as e:
         logger.error(f"Failed to start/connect AMLSutra: {str(e)}")

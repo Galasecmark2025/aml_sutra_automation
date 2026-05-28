@@ -5,7 +5,7 @@ import time
 import re
 
 
-def connect_or_start_app(exe_path,logger=None,max_trials=3, force_new=False):
+def connect_or_start_app(exe_path,window_pattern=r"^AMLSutra\s*\(([\d\.]+)\)\s*:\s*([^\[]+)\[([^\]]+)\]$", logger=None,max_trials=3, force_new=False):
     """
     Connect to running AMLSutra instance.
     If not running, start new instance.
@@ -16,12 +16,7 @@ def connect_or_start_app(exe_path,logger=None,max_trials=3, force_new=False):
         already_running (bool)
     """
 
-    pattern = (
-        r"^AMLSutra\s*"
-        r"\(([\d\.]+)\)"
-        r"\s*:\s*([^\[]+)"
-        r"\[([^\]]+)\]$"
-    )
+    pattern = window_pattern
 
     # ==================================
     # CONNECT TO EXISTING APP

@@ -4,6 +4,7 @@
       "username":"cadmin",
       "password": "oWRj+Q2M7w5r8MIIS/DBhQ=="
   }, 
+  "window_pattern": "^AMLSutra\\s*\\(([\\d\\.]+)\\)\\s*:\\s*([^\\[]+)\\[([^\\]]+)\\]$", 
   "waittime(seconds)":3, 
   "number_of_trials": 3, 
   "error_screenshots_only": false, 

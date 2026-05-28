@@ -16,12 +16,17 @@ def perform_actions(window, actions, read_path, write_path, logger, error_screen
     for action in actions:
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
-        main_menu = action.get("main_menu")
-        sub_menu = action.get("sub_menu")
-        company = action.get("company")
-        proc_type = action.get("proc_type")
+        main_menu = action.get("main_menu", "")
+        sub_menu = action.get("sub_menu", "")
+        company = action.get("company", "")
+        proc_type = action.get("proc_type", "")
         proc_ids = action.get("proc_ids")
         date = action.get("date")
+        
+        if not all((main_menu, sub_menu, company, proc_type)):
+            logger.warning(f"Required fields are missing: One of the 'main_menu', 'sub_menu', 'company', 'proc_type'")
+            # return
+            continue
         
         main_menu_btn = window.child_window(
             title=main_menu,

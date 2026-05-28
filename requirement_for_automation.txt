@@ -11,3 +11,4 @@
 
 4. Json validations
  - Vishal to discuss this requirement with Kamlesh bhai and Vishal Sahani.
+ - main menu, sub menu, company name and proc type are required fields.

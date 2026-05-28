@@ -8,6 +8,20 @@
       "proc_type": "7 - TRTradeSummary",
       "proc_ids": [137, 138],
       "date" : "22/05/2026"
+    },
+    {
+      "main_menu":"Process",
+      "sub_menu":"Alert Generation",
+      "proc_ids": [137, 138],
+      "date" : "22/05/2026"
+    },
+    {
+      "main_menu":"Process",
+      "sub_menu":"Alert Generation",
+      "company":"Captial Market [11]",
+      "proc_type": "7 - TRTradeSummary",
+      "proc_ids": [143, 141],
+      "date" : "22/05/2026"
     }
   ]
 }

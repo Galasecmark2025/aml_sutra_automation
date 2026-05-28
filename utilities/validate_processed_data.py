@@ -10,6 +10,6 @@ def validate_processed_data(post_process_table_data, config_process_ids_list, lo
         status_raw = row.get("Status")
         status = ("" if status_raw is None else str(status_raw).strip().lower())
         if (proc_id in config_process_ids_list) and (status != "finished"):
-            logger.info(f"Warning: Process ID: {proc_id}, Status: {status}")
+            logger.error(f"Process ID: {proc_id}, Status: {status}")
             process_success = False
     return process_success
