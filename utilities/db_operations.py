@@ -1,4 +1,5 @@
 import pyodbc
+from datetime import datetime
 
 def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
     conn_str = (
@@ -14,11 +15,11 @@ def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
 
     db = pyodbc.connect(conn_str,timeout=15)
 
-    logger.info("Connected!")
+    if logger: logger.info("Connected!")
 
     return db
 
-def get_execution_dates(bkmcode, exccode, logger):
+def get_execution_dates(bkmcode, exccode=None, logger=None):
     db = None
     try:
         db = get_db_connection(
@@ -27,21 +28,29 @@ def get_execution_dates(bkmcode, exccode, logger):
             LoginPassword="ComTek@dm!n123", 
             logger=logger
         )
-
+        curr_date = datetime.today().strftime("%Y%m%d")
+        print(curr_date)
         cursor = db.cursor()
-        cursor.execute(f"select distinct TrxDate,PTradeDate from SOSDevPmla..CalenderBE where trxdate='20260530' and BkmCode={bkmcode}")
+        exccode_cond = f"and exccode = {exccode}" if exccode else ""
+        cursor.execute(f"select distinct PTradeDate from SOSDevPmla..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
 
-        transaction_date, ptradedate = cursor.fetchall()[0]
-        return transaction_date, ptradedate
+        row = cursor.fetchone()
+        ptradedate = row[0].strftime("%d/%m/%Y") if row and row[0] else None
+        # required date format: DD/MM/YYYY
+        return ptradedate
 
     except Exception as e:
         print("Full error:")
         print(repr(e))
+        return None, None
 
     finally:
         try:
             if db and db.connected != 0:
                 db.close()
-                logger.info("Connection closed.")
+                if logger: logger.info("Connection closed.")
         except Exception:
             pass
+        
+if __name__ == "__main__":
+    print(get_execution_dates("11"))

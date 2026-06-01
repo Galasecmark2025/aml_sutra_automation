@@ -11,6 +11,7 @@ from utilities.close_opened_window import close_opened_window
 from utilities.fetch_company_list import fetch_company_list
 from utilities.capture_screenshot import capture_screenshot
 from utilities.fetch_table_data import fetch_table_data
+from utilities.db_operations import get_execution_dates
 
 def perform_actions(window, actions, read_path, write_path, logger, error_screenshots_only=True):
     for action in actions:
@@ -21,7 +22,11 @@ def perform_actions(window, actions, read_path, write_path, logger, error_screen
         company = action.get("company", "")
         proc_type = action.get("proc_type", "")
         proc_ids = action.get("proc_ids")
-        date = action.get("date")
+        bkmcode = action.get("bkmcode")
+        ptradedate = get_execution_dates(bkmcode, logger=logger)
+        if not ptradedate:
+            logger.warning(f"Falied to read dates")
+        date = ptradedate
         
         if not all((main_menu, sub_menu, company, proc_type)):
             logger.warning(f"Required fields are missing: One of the 'main_menu', 'sub_menu', 'company', 'proc_type'")
