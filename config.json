@@ -8,5 +8,6 @@
   "waittime(seconds)":3, 
   "number_of_trials": 3, 
   "error_screenshots_only": false, 
-  "use_fresh_instance": false
+  "use_fresh_instance": false, 
+  "database_name": "SOSDevPmla"
 }

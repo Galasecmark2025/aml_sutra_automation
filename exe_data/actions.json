@@ -6,7 +6,9 @@
       "sub_menu":"Alert Generation",
       "company":"Captial Market [11]",
       "proc_type": "7 - TRTradeSummary",
-      "proc_ids": [137, 138],
+      "proc_ids": [138, 141],
+      "bkmcode":"11",
+	    "exccode":"12",
       "date" : "22/05/2026"
     }
   ]

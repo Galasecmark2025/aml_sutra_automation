@@ -13,7 +13,10 @@ from utilities.capture_screenshot import capture_screenshot
 from utilities.fetch_table_data import fetch_table_data
 from utilities.db_operations import get_execution_dates
 
-def perform_actions(window, actions, read_path, write_path, logger, error_screenshots_only=True):
+def perform_actions(window, actions, read_path, write_path, database_name, logger, error_screenshots_only=True):
+    if not database_name:
+        logger.error(f"Database name required for fetching date, user is requested to update configurations")
+        return
     for action in actions:
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
@@ -23,7 +26,7 @@ def perform_actions(window, actions, read_path, write_path, logger, error_screen
         proc_type = action.get("proc_type", "")
         proc_ids = action.get("proc_ids")
         bkmcode = action.get("bkmcode")
-        ptradedate = get_execution_dates(bkmcode, logger=logger)
+        ptradedate = get_execution_dates(bkmcode, database_name=database_name, logger=logger)
         if not ptradedate:
             logger.warning(f"Falied to read dates")
         date = ptradedate

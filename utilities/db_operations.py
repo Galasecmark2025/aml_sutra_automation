@@ -19,7 +19,7 @@ def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
 
     return db
 
-def get_execution_dates(bkmcode, exccode=None, logger=None):
+def get_execution_dates(bkmcode, exccode=None, database_name=None, logger=None):
     db = None
     try:
         db = get_db_connection(
@@ -32,7 +32,7 @@ def get_execution_dates(bkmcode, exccode=None, logger=None):
         print(curr_date)
         cursor = db.cursor()
         exccode_cond = f"and exccode = {exccode}" if exccode else ""
-        cursor.execute(f"select distinct PTradeDate from SOSDevPmla..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
+        cursor.execute(f"select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
 
         row = cursor.fetchone()
         ptradedate = row[0].strftime("%d/%m/%Y") if row and row[0] else None
