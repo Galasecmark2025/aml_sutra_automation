@@ -96,7 +96,7 @@ def run():
     error_screenshots_only = config.get("error_screenshots_only", True)
     database_name = config.get("database_name", {})
     if actions:
-        perform_actions(new_window, actions, read_path, write_path, database_name, logger, error_screenshots_only)
+        perform_actions(new_window, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only)
     
     time.sleep(2)
     # try:

@@ -1,15 +1,18 @@
 {
   "error_bypass": false, 
-  "actions": [
+  "selection_type": {
+    "Alert Generation": "popProcType", 
+    "Common Import": "popImportType"
+  },
+    "actions": [
     {
       "main_menu":"Process",
-      "sub_menu":"Alert Generation",
-      "company":"Captial Market [11]",
-      "proc_type": "7 - TRTradeSummary",
-      "proc_ids": [138, 141],
+      "sub_menu":"Common Import",
+      "company":"Secmark-CX-N - [11141700]",
+      "proc_type": "0 - ALL",
+      "proc_ids": [163, 164],
       "bkmcode":"11",
-	    "exccode":"12",
-      "date" : "22/05/2026"
+	    "exccode":"12"
     }
   ]
 }

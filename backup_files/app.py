@@ -44,6 +44,7 @@ def run():
     )
     alert_option.click_input()
     time.sleep(5)
+    new_window = app.top_window()
     new_window.print_control_identifiers(filename="controls.txt")
     # new_window.print_control_identifiers()
     # controls = new_window.descendants()

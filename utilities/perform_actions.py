@@ -12,8 +12,9 @@ from utilities.fetch_company_list import fetch_company_list
 from utilities.capture_screenshot import capture_screenshot
 from utilities.fetch_table_data import fetch_table_data
 from utilities.db_operations import get_execution_dates
+from utilities.dump_controls import dump_controls
 
-def perform_actions(window, actions, read_path, write_path, database_name, logger, error_screenshots_only=True):
+def perform_actions(window, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only=True):
     if not database_name:
         logger.error(f"Database name required for fetching date, user is requested to update configurations")
         return
@@ -26,10 +27,20 @@ def perform_actions(window, actions, read_path, write_path, database_name, logge
         proc_type = action.get("proc_type", "")
         proc_ids = action.get("proc_ids")
         bkmcode = action.get("bkmcode")
-        ptradedate = get_execution_dates(bkmcode, database_name=database_name, logger=logger)
-        if not ptradedate:
-            logger.warning(f"Falied to read dates")
-        date = ptradedate
+        date = action.get("date", "")
+        type_selection = actions_json.get("selection_type", {}).get(sub_menu, "")
+        logger.info(f"actions_json = {actions_json}")
+        logger.info(f"sub_menu = '{sub_menu}'")
+        logger.info(f"type_selection = '{type_selection}'")
+        if not date: 
+            if not bkmcode:
+                logger.warning(f"bkmcode configuration required if not using date explicitly")
+                continue
+                
+            ptradedate = get_execution_dates(bkmcode, database_name=database_name, logger=logger)
+            if not ptradedate:
+                logger.warning(f"Falied to read dates")
+            date = ptradedate
         
         if not all((main_menu, sub_menu, company, proc_type)):
             logger.warning(f"Required fields are missing: One of the 'main_menu', 'sub_menu', 'company', 'proc_type'")
@@ -50,12 +61,29 @@ def perform_actions(window, actions, read_path, write_path, database_name, logge
         time.sleep(0.5)
         sub_menu_btn.click_input()
         time.sleep(1)
-            
+        window = window.app.top_window()
+
+        # print("TOP WINDOW:", repr(window.window_text()))
+
+        # for c in window.children():
+        #     try:
+        #         print(
+        #             c.window_text(),
+        #             c.element_info.control_type,
+        #             c.element_info.automation_id
+        #         )
+        #     except Exception as e:
+        #         print(e)
+        # dump_controls(window)
         company_list = fetch_company_list(window, logger)
         logger.info(f"Found companies: {company_list}")
         fetch_dropdown_value(window, "popCBECode", "ComboBox", company, logger)
         if proc_type:
-            fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
+                fetch_dropdown_value(window, type_selection, "ComboBox", proc_type, logger)
+            # if sub_menu == "Alert Generation":
+            #     fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
+            # elif sub_menu == "Common Import":
+            #     fetch_dropdown_value(window, "popImportType", "ComboBox", proc_type, logger)
         if date:
             fetch_dropdown_value(window, "boxDate", "Group", date, logger)
         process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)

@@ -59,7 +59,7 @@ def connect_or_start_app(exe_path,window_pattern=r"^AMLSutra\s*\(([\d\.]+)\)\s*:
 
             app = Application(backend="uia").start(exe_path)
 
-            time.sleep(5)
+            time.sleep(1)
 
             start = time.time()
 
