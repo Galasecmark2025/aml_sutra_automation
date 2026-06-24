@@ -1,0 +1,1585 @@
+Index: 0
+Text: ''
+AutoID: 'PanelBottom'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 1
+Text: ''
+AutoID: '920088'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 2
+Text: ''
+AutoID: 'MdiStatusBar'
+ControlType: 'StatusBar'
+--------------------------------------------------------------------------------
+Index: 3
+Text: ' Ready'
+AutoID: '[Panel] 0'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 4
+Text: '160.30.125.196,10222.TRAMLSutraApp'
+AutoID: '[Panel] 1'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 5
+Text: '201 : Cadmin'
+AutoID: '[Panel] 2'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 6
+Text: ''
+AutoID: 'PanelTop'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 7
+Text: ''
+AutoID: '985622'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 8
+Text: ''
+AutoID: '_MDIForm_Toolbars_Dock_Area_Top'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 9
+Text: 'MainMenu'
+AutoID: 'MainMenu : MainMenu'
+ControlType: 'ToolBar'
+--------------------------------------------------------------------------------
+Index: 10
+Text: 'Master'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3901000000 - Index : 0 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 11
+Text: 'Entry'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3902000000 - Index : 1 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 12
+Text: 'Import'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3903000000 - Index : 2 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 13
+Text: 'Process'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3904000000 - Index : 3 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 14
+Text: 'Display'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3905000000 - Index : 4 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 15
+Text: 'Reports'
+AutoID: '[MainMenu : MainMenu Tools] Tool : 3906000000 - Index : 5 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 16
+Text: 'Window'
+AutoID: '[MainMenu : MainMenu Tools] Tool : WD01000000 - Index : 6 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 17
+Text: 'Help  * 32'
+AutoID: '[MainMenu : MainMenu Tools] Tool : HL01000000 - Index : 7 '
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 18
+Text: 'Secmark Consultancy Limited'
+AutoID: '[MainMenu : MainMenu Tools] Tool : CC02000000 - Index : 8 '
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 19
+Text: 'Process'
+AutoID: 'Toolbar : Process'
+ControlType: 'ToolBar'
+--------------------------------------------------------------------------------
+Index: 20
+Text: 'Process'
+AutoID: '[Toolbar : Process Tools] Tool : PR01 - Index : 0 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 21
+Text: 'Delete'
+AutoID: '[Toolbar : Process Tools] Tool : PR07 - Index : 1 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 22
+Text: 'Help'
+AutoID: '[Toolbar : Process Tools] Tool : PR98 - Index : 2 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 23
+Text: 'Close'
+AutoID: '[Toolbar : Process Tools] Tool : PR99 - Index : 3 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 24
+Text: 'Setting'
+AutoID: 'Toolbar : Setting'
+ControlType: 'ToolBar'
+--------------------------------------------------------------------------------
+Index: 25
+Text: 'Year : 2026-27'
+AutoID: '[Toolbar : Setting Tools] Tool : ST01 - Index : 0 '
+ControlType: 'SplitButton'
+--------------------------------------------------------------------------------
+Index: 26
+Text: 'Year : 2026-27'
+AutoID: 'Segment Button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 27
+Text: 'Year : 2026-27'
+AutoID: 'DropDown Arrow'
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 28
+Text: 'Company : Secmark-EQ-N - [ 11111100 ]    '
+AutoID: '[Toolbar : Setting Tools] Tool : ST02 - Index : 1 '
+ControlType: 'SplitButton'
+--------------------------------------------------------------------------------
+Index: 29
+Text: 'Company : Secmark-EQ-N - [ 11111100 ]    '
+AutoID: 'Segment Button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 30
+Text: 'Company : Secmark-EQ-N - [ 11111100 ]    '
+AutoID: 'DropDown Arrow'
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 31
+Text: 'Modules'
+AutoID: '[Toolbar : Setting Tools] Tool : ST97 - Index : 2 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 32
+Text: 'About'
+AutoID: '[Toolbar : Setting Tools] Tool : ST98 - Index : 3 '
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 33
+Text: 'DisplayPop'
+AutoID: 'Toolbar : DisplayPop'
+ControlType: 'ToolBar'
+--------------------------------------------------------------------------------
+Index: 34
+Text: 'Toolbar Options'
+AutoID: 'QuickCustomizeTool'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 35
+Text: ''
+AutoID: '526690'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 36
+Text: 'Common Import'
+AutoID: 'PMTRImportForm'
+ControlType: 'Window'
+--------------------------------------------------------------------------------
+Index: 37
+Text: ''
+AutoID: 'TabMain'
+ControlType: 'Tab'
+--------------------------------------------------------------------------------
+Index: 38
+Text: ''
+AutoID: 'UltraTabPageControl3'
+ControlType: 'Pane'
+--------------------------------------------------------------------------------
+Index: 39
+Text: ''
+AutoID: 'GridDTS'
+ControlType: 'Custom'
+--------------------------------------------------------------------------------
+Index: 40
+Text: ''
+AutoID: 'Data Area'
+ControlType: 'Custom'
+--------------------------------------------------------------------------------
+Index: 41
+Text: ''
+AutoID: 'ColScrollRegion: 0, RowScrollRegion: 0'
+ControlType: 'Tree'
+--------------------------------------------------------------------------------
+Index: 42
+Text: ''
+AutoID: 'Band Headers'
+ControlType: 'Header'
+--------------------------------------------------------------------------------
+Index: 43
+Text: 'Mark'
+AutoID: '[Column Header] MyMark'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 44
+Text: 'Srno'
+AutoID: '[Column Header] Srno'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 45
+Text: 'Code'
+AutoID: '[Column Header] PMProcCode'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 46
+Text: 'Process'
+AutoID: '[Column Header] ProcShortName'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 47
+Text: 'Name'
+AutoID: '[Column Header] ProcName'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 48
+Text: 'Remarks'
+AutoID: '[Column Header] ProcRemarks'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 49
+Text: 'Status'
+AutoID: '[Column Header] MyStatus'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 50
+Text: 'Time (Sec)'
+AutoID: '[Column Header] TimeInSec'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 51
+Text: 'Added'
+AutoID: '[Column Header] AddCnt'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 52
+Text: 'Edited'
+AutoID: '[Column Header] EditCnt'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 53
+Text: 'Deleted'
+AutoID: '[Column Header] DelCnt'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 54
+Text: 'Elig'
+AutoID: '[Column Header] EligCnt'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 55
+Text: 'Pr'
+AutoID: '[Column Header] ProcCnt'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 56
+Text: 'Trade Date'
+AutoID: '[Column Header] TradeDate'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 57
+Text: 'Proc ID'
+AutoID: '[Column Header] PMProcID'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 58
+Text: 'CBEBook List'
+AutoID: '[Column Header] CBEBookList'
+ControlType: 'HeaderItem'
+--------------------------------------------------------------------------------
+Index: 59
+Text: 'False'
+AutoID: '0'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 60
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 61
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 62
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 63
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 64
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 65
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 66
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 67
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 68
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 69
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 70
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 71
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 72
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 73
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 74
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 75
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 76
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 77
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 78
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 79
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 80
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 81
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 82
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 83
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 84
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 85
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 86
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 87
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 88
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 89
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 90
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 91
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 92
+Text: 'False'
+AutoID: '1'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 93
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 94
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 95
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 96
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 97
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 98
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 99
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 100
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 101
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 102
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 103
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 104
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 105
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 106
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 107
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 108
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 109
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 110
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 111
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 112
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 113
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 114
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 115
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 116
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 117
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 118
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 119
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 120
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 121
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 122
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 123
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 124
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 125
+Text: 'False'
+AutoID: '2'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 126
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 127
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 128
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 129
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 130
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 131
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 132
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 133
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 134
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 135
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 136
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 137
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 138
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 139
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 140
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 141
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 142
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 143
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 144
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 145
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 146
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 147
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 148
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 149
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 150
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 151
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 152
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 153
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 154
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 155
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 156
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 157
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 158
+Text: 'False'
+AutoID: '3'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 159
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 160
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 161
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 162
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 163
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 164
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 165
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 166
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 167
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 168
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 169
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 170
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 171
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 172
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 173
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 174
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 175
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 176
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 177
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 178
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 179
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 180
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 181
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 182
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 183
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 184
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 185
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 186
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 187
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 188
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 189
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 190
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 191
+Text: 'False'
+AutoID: '4'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 192
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 193
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 194
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 195
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 196
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 197
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 198
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 199
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 200
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 201
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 202
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 203
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 204
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 205
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 206
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 207
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 208
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 209
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 210
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 211
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 212
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 213
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 214
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 215
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 216
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 217
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 218
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 219
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 220
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 221
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 222
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 223
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 224
+Text: 'False'
+AutoID: '5'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 225
+Text: 'Mark'
+AutoID: '0'
+ControlType: 'CheckBox'
+--------------------------------------------------------------------------------
+Index: 226
+Text: 'Srno'
+AutoID: '1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 227
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 228
+Text: 'Code'
+AutoID: '2'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 229
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 230
+Text: 'Process'
+AutoID: '3'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 231
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 232
+Text: 'Name'
+AutoID: '4'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 233
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 234
+Text: 'Remarks'
+AutoID: '5'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 235
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 236
+Text: 'Status'
+AutoID: '6'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 237
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 238
+Text: 'Time (Sec)'
+AutoID: '7'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 239
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 240
+Text: 'Added'
+AutoID: '8'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 241
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 242
+Text: 'Edited'
+AutoID: '9'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 243
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 244
+Text: 'Deleted'
+AutoID: '10'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 245
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 246
+Text: 'Elig'
+AutoID: '11'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 247
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 248
+Text: 'Pr'
+AutoID: '12'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 249
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 250
+Text: 'Trade Date'
+AutoID: '13'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 251
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 252
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 253
+Text: 'Proc ID'
+AutoID: '20'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 254
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 255
+Text: 'CBEBook List'
+AutoID: '21'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 256
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 257
+Text: ''
+AutoID: '-1'
+ControlType: 'DataItem'
+--------------------------------------------------------------------------------
+Index: 258
+Text: ''
+AutoID: '0'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 259
+Text: ''
+AutoID: '1'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 260
+Text: ''
+AutoID: '2'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 261
+Text: ''
+AutoID: '3'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 262
+Text: ''
+AutoID: '4'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 263
+Text: ''
+AutoID: '5'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 264
+Text: ''
+AutoID: '6'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 265
+Text: 'Info'
+AutoID: 'TabItem Index : 0'
+ControlType: 'TabItem'
+--------------------------------------------------------------------------------
+Index: 266
+Text: 'Details'
+AutoID: 'TabItem Index : 1'
+ControlType: 'TabItem'
+--------------------------------------------------------------------------------
+Index: 267
+Text: 'Mark for Processing'
+AutoID: 'TabItem Index : 2'
+ControlType: 'TabItem'
+--------------------------------------------------------------------------------
+Index: 268
+Text: 'Grid Temp'
+AutoID: 'TabItem Index : 3'
+ControlType: 'TabItem'
+--------------------------------------------------------------------------------
+Index: 269
+Text: 'Status'
+AutoID: 'TabItem Index : 4'
+ControlType: 'TabItem'
+--------------------------------------------------------------------------------
+Index: 270
+Text: ''
+AutoID: 'PanelMain'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 271
+Text: ''
+AutoID: 'boxDate'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 272
+Text: ''
+AutoID: 'txtDate1'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 273
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 274
+Text: ''
+AutoID: '[Editor] [Spin Button] Up'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 275
+Text: ''
+AutoID: '[Editor] [Spin Button] Down'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 276
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 277
+Text: 'Trx Date'
+AutoID: '1509956'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 278
+Text: 'Show'
+AutoID: 'cmdGridLoad'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 279
+Text: 'Excel'
+AutoID: 'cmdExcel'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 280
+Text: ''
+AutoID: 'PanelTop'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 281
+Text: ''
+AutoID: 'popImportType'
+ControlType: 'ComboBox'
+--------------------------------------------------------------------------------
+Index: 282
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 283
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 284
+Text: '0 - ALL'
+AutoID: '[Editor] [valuelist] ValueListItem 0'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 285
+Text: '1 - Import'
+AutoID: '[Editor] [valuelist] ValueListItem 1'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 286
+Text: '2 - Process'
+AutoID: '[Editor] [valuelist] ValueListItem 2'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 287
+Text: ''
+AutoID: 'popCBECode'
+ControlType: 'ComboBox'
+--------------------------------------------------------------------------------
+Index: 288
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 289
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 290
+Text: 'Secmark-EQ-N - [11111100] '
+AutoID: '[Editor] [valuelist] ValueListItem 0'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 291
+Text: 'Secmark-EQ-B - [11111200] '
+AutoID: '[Editor] [valuelist] ValueListItem 1'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 292
+Text: 'Secmark-FO-N - [11121100] '
+AutoID: '[Editor] [valuelist] ValueListItem 2'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 293
+Text: 'Secmark-FO-B - [11121200] '
+AutoID: '[Editor] [valuelist] ValueListItem 3'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 294
+Text: 'Secmark-CX-N - [11141100] '
+AutoID: '[Editor] [valuelist] ValueListItem 4'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 295
+Text: 'Secmark-CX-N - [11141700] '
+AutoID: '[Editor] [valuelist] ValueListItem 5'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 296
+Text: ''
+AutoID: 'popAction'
+ControlType: 'ComboBox'
+--------------------------------------------------------------------------------
+Index: 297
+Text: ''
+AutoID: '[Editor] Edit Area'
+ControlType: 'Edit'
+--------------------------------------------------------------------------------
+Index: 298
+Text: ''
+AutoID: '[Editor] [ButtonsRight] Key : Action'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 299
+Text: ''
+AutoID: '[Editor] dropdown button'
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 300
+Text: 'Select'
+AutoID: '[Editor] [valuelist] ValueListItem 0'
+ControlType: 'ListItem'
+--------------------------------------------------------------------------------
+Index: 301
+Text: 'Perform'
+AutoID: '1182066'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 302
+Text: 'Company'
+AutoID: '1444062'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 303
+Text: 'Proc Sub Type'
+AutoID: '1772236'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 304
+Text: ''
+AutoID: 'ChildStatusBar'
+ControlType: 'StatusBar'
+--------------------------------------------------------------------------------
+Index: 305
+Text: 'Loaded Process'
+AutoID: '[Panel] 0'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 306
+Text: ''
+AutoID: '[Panel] 1'
+ControlType: 'Text'
+--------------------------------------------------------------------------------
+Index: 307
+Text: ''
+AutoID: ''
+ControlType: 'TitleBar'
+--------------------------------------------------------------------------------
+Index: 308
+Text: 'System'
+AutoID: 'MenuBar'
+ControlType: 'MenuBar'
+--------------------------------------------------------------------------------
+Index: 309
+Text: 'Document Window'
+AutoID: ''
+ControlType: 'MenuItem'
+--------------------------------------------------------------------------------
+Index: 310
+Text: 'Minimize'
+AutoID: ''
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 311
+Text: 'Restore'
+AutoID: ''
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 312
+Text: 'Close'
+AutoID: ''
+ControlType: 'Button'
+--------------------------------------------------------------------------------
+Index: 313
+Text: 'DockLeft'
+AutoID: '_MDIForm_UltraFormManager_Dock_Area_Left'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 314
+Text: 'DockRight'
+AutoID: '_MDIForm_UltraFormManager_Dock_Area_Right'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 315
+Text: 'DockTop'
+AutoID: '_MDIForm_UltraFormManager_Dock_Area_Top'
+ControlType: 'Group'
+--------------------------------------------------------------------------------
+Index: 316
+Text: 'DockBottom'
+AutoID: '_MDIForm_UltraFormManager_Dock_Area_Bottom'
+ControlType: 'Group'
+--------------------------------------------------------------------------------

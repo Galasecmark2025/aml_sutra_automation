@@ -27,21 +27,26 @@ def perform_actions(window, actions_json, actions, read_path, write_path, databa
         proc_type = action.get("proc_type", "")
         proc_ids = action.get("proc_ids")
         bkmcode = action.get("bkmcode")
-        date = action.get("date", "")
+        date = str(action.get("date", "")).strip()
+        logger.info(f"Initial date = '{date}'")
+        logger.info(f"bkmcode = '{bkmcode}'")
+        
         type_selection = actions_json.get("selection_type", {}).get(sub_menu, "")
         logger.info(f"actions_json = {actions_json}")
         logger.info(f"sub_menu = '{sub_menu}'")
         logger.info(f"type_selection = '{type_selection}'")
         if not date: 
+            logger.info("Date not provided. Fetching from PTRADE.")
             if not bkmcode:
                 logger.warning(f"bkmcode configuration required if not using date explicitly")
                 continue
                 
             ptradedate = get_execution_dates(bkmcode, database_name=database_name, logger=logger)
+            logger.info(f"Date from query: '{ptradedate}'")
             if not ptradedate:
                 logger.warning(f"Falied to read dates")
             date = ptradedate
-        
+        logger.info(f"Final date used = '{date}'")
         if not all((main_menu, sub_menu, company, proc_type)):
             logger.warning(f"Required fields are missing: One of the 'main_menu', 'sub_menu', 'company', 'proc_type'")
             # return
