@@ -96,13 +96,9 @@ def run():
     error_screenshots_only = config.get("error_screenshots_only", True)
     database_name = config.get("database_name", {})
     if actions:
-        perform_actions(new_window, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only)
+        perform_actions(new_window, config, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only)
     
-    time.sleep(2)
-    # try:
-    #     if app and not already_running:
-    #         logger.info("Closing AMLSutra instance")
-    #         app.kill()            
+    time.sleep(2)    
     try:
         if app:
             logger.info("Closing AMLSutra instance")

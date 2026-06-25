@@ -9,5 +9,8 @@
   "number_of_trials": 3, 
   "error_screenshots_only": false, 
   "use_fresh_instance": false, 
-  "database_name": "SOSDevPmla"
+  "database_name": "SOSDevPmla", 
+  "data_server_name": "160.30.125.196,10222",
+  "server_username": "ComtekAdmin",
+  "server_password": "ComTek@dm!n123"
 }

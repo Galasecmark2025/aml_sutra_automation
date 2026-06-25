@@ -1,6 +1,8 @@
 import pyodbc
 from datetime import datetime
 
+from utilities.get_config import get_config
+
 def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
     conn_str = (
         "DRIVER={ODBC Driver 18 for SQL Server};"
@@ -19,19 +21,23 @@ def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
 
     return db
 
-def get_execution_dates(bkmcode, exccode=None, database_name=None, logger=None):
+def get_execution_dates(config, bkmcode, exccode=None, database_name=None, logger=None):
     db = None
+    data_server_name = config.get("data_server_name", "")
+    server_username = config.get("server_username", "")
+    server_password = config.get("server_password", "")
     try:
         db = get_db_connection(
-            DataServerName="160.30.125.196,10222",
-            LoginName="ComtekAdmin",
-            LoginPassword="ComTek@dm!n123", 
+            DataServerName=data_server_name,
+            LoginName=server_username,
+            LoginPassword=server_password, 
             logger=logger
         )
         curr_date = datetime.today().strftime("%Y%m%d")
         print(curr_date)
         cursor = db.cursor()
         exccode_cond = f"and exccode = {exccode}" if exccode else ""
+        logger.info(f"Query for fetching Date: select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
         cursor.execute(f"select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
 
         row = cursor.fetchone()

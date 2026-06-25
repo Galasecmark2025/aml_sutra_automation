@@ -7,12 +7,12 @@
     "actions": [
     {
       "main_menu":"Process",
-      "sub_menu":"Common Import",
-      "company":"Secmark-CX-N - [11141700]",
-      "proc_type": "0 - ALL",
-      "proc_ids": [171, 172],
+      "sub_menu":"Alert Generation",
+      "company":"Futures and Options - [ 12 ]",
+      "proc_type": "9 - TRSettlementProcess",
+      "proc_ids": [144],
       "bkmcode":"11",
-	    "exccode":"12"
+      "exccode":"12"
     }
   ]
 }

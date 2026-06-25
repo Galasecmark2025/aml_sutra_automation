@@ -14,11 +14,14 @@ from utilities.fetch_table_data import fetch_table_data
 from utilities.db_operations import get_execution_dates
 from utilities.dump_controls import dump_controls
 
-def perform_actions(window, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only=True):
+def perform_actions(window, config, actions_json, actions, read_path, write_path, database_name, logger, error_screenshots_only=True):
     if not database_name:
         logger.error(f"Database name required for fetching date, user is requested to update configurations")
         return
+    app = window.app
     for action in actions:
+        start_time = time.perf_counter()
+        window = app.top_window()
         window.click_input(coords=(200, 10))
         time.sleep(0.5)
         main_menu = action.get("main_menu", "")
@@ -41,7 +44,7 @@ def perform_actions(window, actions_json, actions, read_path, write_path, databa
                 logger.warning(f"bkmcode configuration required if not using date explicitly")
                 continue
                 
-            ptradedate = get_execution_dates(bkmcode, database_name=database_name, logger=logger)
+            ptradedate = get_execution_dates(config=config, bkmcode=bkmcode, database_name=database_name, logger=logger)
             logger.info(f"Date from query: '{ptradedate}'")
             if not ptradedate:
                 logger.warning(f"Falied to read dates")
@@ -65,33 +68,19 @@ def perform_actions(window, actions_json, actions, read_path, write_path, databa
         )
         time.sleep(0.5)
         sub_menu_btn.click_input()
-        time.sleep(1)
-        window = window.app.top_window()
+        # dump_controls(window, "controls_for_closing.txt")
 
-        # print("TOP WINDOW:", repr(window.window_text()))
+        dialog_window = app.top_window()
+        dialog_window.wait("ready", timeout=10)
 
-        # for c in window.children():
-        #     try:
-        #         print(
-        #             c.window_text(),
-        #             c.element_info.control_type,
-        #             c.element_info.automation_id
-        #         )
-        #     except Exception as e:
-        #         print(e)
-        # dump_controls(window)
-        company_list = fetch_company_list(window, logger)
+        company_list = fetch_company_list(dialog_window, logger)
         logger.info(f"Found companies: {company_list}")
-        fetch_dropdown_value(window, "popCBECode", "ComboBox", company, logger)
+        fetch_dropdown_value(dialog_window, "popCBECode", "ComboBox", company, logger)
         if proc_type:
-                fetch_dropdown_value(window, type_selection, "ComboBox", proc_type, logger)
-            # if sub_menu == "Alert Generation":
-            #     fetch_dropdown_value(window, "popProcType", "ComboBox", proc_type, logger)
-            # elif sub_menu == "Common Import":
-            #     fetch_dropdown_value(window, "popImportType", "ComboBox", proc_type, logger)
+                fetch_dropdown_value(dialog_window, type_selection, "ComboBox", proc_type, logger)
         if date:
-            fetch_dropdown_value(window, "boxDate", "Group", date, logger)
-        process_ids = fetch_table_data(window, column_list=["Proc ID"], logger=logger)
+            fetch_dropdown_value(dialog_window, "boxDate", "Group", date, logger)
+        process_ids = fetch_table_data(dialog_window, column_list=["Proc ID"], logger=logger)
         table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
         logger.info(f"Table Process IDs: {table_process_ids_list}")
         process_all = False
@@ -106,11 +95,11 @@ def perform_actions(window, actions_json, actions, read_path, write_path, databa
                 in table_process_ids_list
             ]
         if process_all:
-            mark_rows_by_process_ids(window, process_all=True, logger=logger)
+            mark_rows_by_process_ids(dialog_window, process_all=True, logger=logger)
         elif config_process_ids_list:    
             logger.info(f"IDs to process: {config_process_ids_list}")
-            mark_rows_by_process_ids(window, process_ids=config_process_ids_list, logger=logger)
-        post_process_table_data = trade_summary_processing(window, read_path, logger)
+            mark_rows_by_process_ids(dialog_window, process_ids=config_process_ids_list, logger=logger)
+        post_process_table_data = trade_summary_processing(dialog_window, read_path, logger)
         logger.info(f"Post process table data: {post_process_table_data}")
         if config_process_ids_list:
             is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
@@ -125,6 +114,10 @@ def perform_actions(window, actions_json, actions, read_path, write_path, databa
                 capture_screenshot(write_path, logger)
             
         try:
-            close_opened_window(window, logger)
-        except:
+            close_opened_window(dialog_window, logger)
+        except Exception as e:
+            logger.warning(f"Close failed: {e}")
             send_keys("{ESC}")
+        finally:
+            elapsed_time = time.perf_counter() - start_time
+            logger.info(f"Action '{sub_menu}' '{proc_type}' completed in {elapsed_time:.2f} seconds")

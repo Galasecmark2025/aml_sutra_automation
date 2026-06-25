@@ -4,7 +4,6 @@ from pywinauto.application import Application
 import time
 import re
 
-
 def connect_or_start_app(exe_path,window_pattern=r"^AMLSutra\s*\(([\d\.]+)\)\s*:\s*([^\[]+)\[([^\]]+)\]$", logger=None,max_trials=3, force_new=False):
     """
     Connect to running AMLSutra instance.
