@@ -38,6 +38,7 @@ def perform_actions(window, config, actions_json, actions, read_path, write_path
         logger.info(f"actions_json = {actions_json}")
         logger.info(f"sub_menu = '{sub_menu}'")
         logger.info(f"type_selection = '{type_selection}'")
+        # logger.info(f"Query for fetching Date: select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
         if not date: 
             logger.info("Date not provided. Fetching from PTRADE.")
             if not bkmcode:

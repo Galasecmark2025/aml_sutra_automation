@@ -92,7 +92,7 @@ def run():
     
     actions_json = get_config(read_path, "actions.json", logger=logger)
     actions = actions_json.get("actions", [])
-    print(f"Fetched action details: {actions}")
+    logger.info(f"Fetched action details: {actions}")
     error_screenshots_only = config.get("error_screenshots_only", True)
     database_name = config.get("database_name", {})
     if actions:

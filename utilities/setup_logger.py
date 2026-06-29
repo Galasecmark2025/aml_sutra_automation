@@ -85,5 +85,5 @@ def setup_logger(write_path):
         return logger
 
     except Exception as e:
-        print(f"Logger setup failed: {e}")
+        e.add_note(f"Logger setup failed: {e}")
         return logger

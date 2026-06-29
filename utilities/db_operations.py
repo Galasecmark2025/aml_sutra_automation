@@ -1,25 +1,40 @@
-import pyodbc
+import pymssql
 from datetime import datetime
 
-from utilities.get_config import get_config
+def get_db_connection(DataServerName, LoginName, LoginPassword, logger=None):
+    try:
+        if logger:
+            logger.info(f"Connecting to SQL Server: {DataServerName}")
 
-def get_db_connection(DataServerName, LoginName, LoginPassword, logger):
-    conn_str = (
-        "DRIVER={ODBC Driver 18 for SQL Server};"
-        f"SERVER={DataServerName};"
-        f"UID={LoginName.strip()};"
-        f"PWD={LoginPassword.strip()};"
-        "Encrypt=yes;"
-        "TrustServerCertificate=yes;"
-    )
+        # If DataServerName is like "160.30.125.196,10222"
+        if "," in DataServerName:
+            server, port = DataServerName.split(",", 1)
+            conn = pymssql.connect(
+                server=server.strip(),
+                port=int(port.strip()),
+                user=LoginName.strip(),
+                password=LoginPassword.strip(),
+                timeout=15,
+                login_timeout=15
+            )
+        else:
+            conn = pymssql.connect(
+                server=DataServerName.strip(),
+                user=LoginName.strip(),
+                password=LoginPassword.strip(),
+                timeout=15,
+                login_timeout=15
+            )
 
-    print("Trying to connect...")
+        if logger:
+            logger.info("Database connection established successfully")
 
-    db = pyodbc.connect(conn_str,timeout=15)
+        return conn
 
-    if logger: logger.info("Connected!")
-
-    return db
+    except Exception as e:
+        if logger:
+            logger.exception(f"Database connection failed: {e}")
+        raise
 
 def get_execution_dates(config, bkmcode, exccode=None, database_name=None, logger=None):
     db = None
@@ -34,7 +49,7 @@ def get_execution_dates(config, bkmcode, exccode=None, database_name=None, logge
             logger=logger
         )
         curr_date = datetime.today().strftime("%Y%m%d")
-        print(curr_date)
+        logger.info(f"Current date: {curr_date}")
         cursor = db.cursor()
         exccode_cond = f"and exccode = {exccode}" if exccode else ""
         logger.info(f"Query for fetching Date: select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
@@ -46,8 +61,8 @@ def get_execution_dates(config, bkmcode, exccode=None, database_name=None, logge
         return ptradedate
 
     except Exception as e:
-        print("Full error:")
-        print(repr(e))
+        logger.error("Full error:")
+        logger.error(repr(e))
         return None, None
 
     finally:
@@ -57,6 +72,3 @@ def get_execution_dates(config, bkmcode, exccode=None, database_name=None, logge
                 if logger: logger.info("Connection closed.")
         except Exception:
             pass
-        
-if __name__ == "__main__":
-    print(get_execution_dates("11"))
