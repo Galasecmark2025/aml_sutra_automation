@@ -31,6 +31,8 @@ def perform_actions(window, config, actions_json, actions, read_path, write_path
         proc_ids = action.get("proc_ids")
         bkmcode = action.get("bkmcode")
         date = str(action.get("date", "")).strip()
+        from_date = str(action.get("from_date", "")).strip()
+        to_date = str(action.get("to_date", "")).strip()
         logger.info(f"Initial date = '{date}'")
         logger.info(f"bkmcode = '{bkmcode}'")
         
@@ -39,86 +41,108 @@ def perform_actions(window, config, actions_json, actions, read_path, write_path
         logger.info(f"sub_menu = '{sub_menu}'")
         logger.info(f"type_selection = '{type_selection}'")
         # logger.info(f"Query for fetching Date: select distinct PTradeDate from {database_name}..CalenderBE where trxdate='{curr_date}' and BkmCode={bkmcode} {exccode_cond}")
-        if not date: 
+        execution_dates = []
+        if from_date and to_date:
+            execution_dates = get_execution_dates(
+                config=config, 
+                bkmcode=bkmcode, 
+                database_name=database_name, 
+                range_required=True, 
+                from_date=from_date, 
+                to_date=to_date, 
+                logger=logger
+            )
+            logger.info(f"Dates list fetched: {execution_dates}")
+        elif date:
+            execution_dates = [date]
+        else:
             logger.info("Date not provided. Fetching from PTRADE.")
             if not bkmcode:
                 logger.warning(f"bkmcode configuration required if not using date explicitly")
                 continue
                 
-            ptradedate = get_execution_dates(config=config, bkmcode=bkmcode, database_name=database_name, logger=logger)
-            logger.info(f"Date from query: '{ptradedate}'")
-            if not ptradedate:
-                logger.warning(f"Falied to read dates")
-            date = ptradedate
-        logger.info(f"Final date used = '{date}'")
+            fetched_date = get_execution_dates(config=config, bkmcode=bkmcode, database_name=database_name, logger=logger)
+            logger.info(f"Date from query: '{fetched_date}'")
+            if not fetched_date:
+                logger.warning("Failed to read date from database.")
+                continue
+            execution_dates = [fetched_date]
+        logger.info(f"Execution dates: {execution_dates}")
         if not all((main_menu, sub_menu, company, proc_type)):
             logger.warning(f"Required fields are missing: One of the 'main_menu', 'sub_menu', 'company', 'proc_type'")
             # return
             continue
         
-        main_menu_btn = window.child_window(
-            title=main_menu,
-            control_type="MenuItem"
-        )
-        time.sleep(0.5)
-        main_menu_btn.click_input()
-        time.sleep(1)
-        sub_menu_btn = window.child_window(
-            title=sub_menu,
-            control_type="MenuItem"
-        )
-        time.sleep(0.5)
-        sub_menu_btn.click_input()
-        # dump_controls(window, "controls_for_closing.txt")
+        if not execution_dates:
+            logger.warning("No execution dates found. Skipping action.")
+            continue
+        
+        for date in execution_dates:
+            logger.info(f"Processing execution date: {date}")
+            main_menu_btn = window.child_window(
+                title=main_menu,
+                control_type="MenuItem"
+            )
+            time.sleep(0.5)
+            main_menu_btn.click_input()
+            time.sleep(1)
+            sub_menu_btn = window.child_window(
+                title=sub_menu,
+                control_type="MenuItem"
+            )
+            time.sleep(0.5)
+            sub_menu_btn.click_input()
+            # dump_controls(window, "controls_for_closing.txt")
 
-        dialog_window = app.top_window()
-        dialog_window.wait("ready", timeout=10)
+            dialog_window = app.top_window()
+            dialog_window.wait("ready", timeout=10)
 
-        company_list = fetch_company_list(dialog_window, logger)
-        logger.info(f"Found companies: {company_list}")
-        fetch_dropdown_value(dialog_window, "popCBECode", "ComboBox", company, logger)
-        if proc_type:
-                fetch_dropdown_value(dialog_window, type_selection, "ComboBox", proc_type, logger)
-        if date:
-            fetch_dropdown_value(dialog_window, "boxDate", "Group", date, logger)
-        process_ids = fetch_table_data(dialog_window, column_list=["Proc ID"], logger=logger)
-        table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
-        logger.info(f"Table Process IDs: {table_process_ids_list}")
-        process_all = False
-        if proc_ids is None:
-            process_all = True
-        config_process_ids_list = []
-        if proc_ids:
-            config_process_ids_list = [
-                str(pid)
-                for pid in proc_ids
-                if str(pid)
-                in table_process_ids_list
-            ]
-        if process_all:
-            mark_rows_by_process_ids(dialog_window, process_all=True, logger=logger)
-        elif config_process_ids_list:    
-            logger.info(f"IDs to process: {config_process_ids_list}")
-            mark_rows_by_process_ids(dialog_window, process_ids=config_process_ids_list, logger=logger)
-        post_process_table_data = trade_summary_processing(dialog_window, read_path, logger)
-        logger.info(f"Post process table data: {post_process_table_data}")
-        if config_process_ids_list:
-            is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
-        else:
-            is_processed = validate_processed_data(post_process_table_data, table_process_ids_list, logger)
+            company_list = fetch_company_list(dialog_window, logger)
+            logger.info(f"Found companies: {company_list}")
+            fetch_dropdown_value(dialog_window, "popCBECode", "ComboBox", company, logger)
+            if proc_type:
+                    fetch_dropdown_value(dialog_window, type_selection, "ComboBox", proc_type, logger)
+
+            if date:
+                fetch_dropdown_value(dialog_window, "boxDate", "Group", date, logger)
+            process_ids = fetch_table_data(dialog_window, column_list=["Proc ID"], logger=logger)
+            table_process_ids_list = [p_data["Proc ID"] for p_data in process_ids if p_data.get("Proc ID")] 
+            logger.info(f"Table Process IDs: {table_process_ids_list}")
+            process_all = False
+            if proc_ids is None:
+                process_all = True
+            config_process_ids_list = []
+            if proc_ids:
+                config_process_ids_list = [
+                    str(pid)
+                    for pid in proc_ids
+                    if str(pid)
+                    in table_process_ids_list
+                ]
+            if process_all:
+                mark_rows_by_process_ids(dialog_window, process_all=True, logger=logger)
+            elif config_process_ids_list:    
+                logger.info(f"IDs to process: {config_process_ids_list}")
+                mark_rows_by_process_ids(dialog_window, process_ids=config_process_ids_list, logger=logger)
+            post_process_table_data = trade_summary_processing(dialog_window, read_path, logger)
+            logger.info(f"Post process table data: {post_process_table_data}")
+            if config_process_ids_list:
+                is_processed = validate_processed_data(post_process_table_data, config_process_ids_list, logger)
+            else:
+                is_processed = validate_processed_data(post_process_table_data, table_process_ids_list, logger)
+                
+            if not is_processed:
+                logger.warning(f"Process failure")
+            else: 
+                logger.info("Action performed successfully")
+                if not error_screenshots_only:
+                    capture_screenshot(write_path, logger)
             
-        if not is_processed:
-            logger.warning(f"Process failure")
-        else: 
-            logger.info("Action performed successfully")
-            if not error_screenshots_only:
-                capture_screenshot(write_path, logger)
-            
-        try:
-            close_opened_window(dialog_window, logger)
-        except Exception as e:
-            logger.warning(f"Close failed: {e}")
-            send_keys("{ESC}")
-        finally:
-            elapsed_time = time.perf_counter() - start_time
-            logger.info(f"Action '{sub_menu}' '{proc_type}' completed in {elapsed_time:.2f} seconds")
+            try:
+                close_opened_window(dialog_window, logger)
+            except Exception as e:
+                logger.warning(f"Close failed: {e}")
+                send_keys("{ESC}")
+            finally:
+                elapsed_time = time.perf_counter() - start_time
+                logger.info(f"Action '{sub_menu}' '{proc_type}' completed in {elapsed_time:.2f} seconds")
