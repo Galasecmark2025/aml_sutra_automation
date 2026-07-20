@@ -1,5 +1,6 @@
 import pymssql
 from datetime import datetime
+from utilities.crypto_util import CryptoUtil
 
 def get_db_connection(DataServerName, LoginName, LoginPassword, logger=None):
     try:
@@ -40,7 +41,9 @@ def get_execution_dates(config, bkmcode, exccode=None, database_name=None, range
     db = None
     data_server_name = config.get("data_server_name", "")
     server_username = config.get("server_username", "")
-    server_password = config.get("server_password", "")
+    # server_password = config.get("server_password", "")
+    server_password = CryptoUtil.decrypt(config.get("server_password", ""))
+
     try:
         db = get_db_connection(
             DataServerName=data_server_name,
